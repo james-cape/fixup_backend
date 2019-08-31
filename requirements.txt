@@ -1,0 +1,4 @@
+dj-database-url
+Django
+postgres
+psycopg2
