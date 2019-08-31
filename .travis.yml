@@ -1,0 +1,10 @@
+language: python
+
+services:
+  - postgresql
+
+env:
+  -DJANGO=2.2.4 DB=postgresql
+
+install:
+  - pip3 install -r requirements.txt
