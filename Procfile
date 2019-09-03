@@ -1,1 +1,1 @@
-web: gunicorn fixup_backend.wsgi
+web: gunicorn api.wsgi

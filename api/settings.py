@@ -25,7 +25,10 @@ SECRET_KEY = 'eyq0s5t6l%&5os1v#3(4knqm_#0%&6_uf9s)x7eyopn4e=$@na'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://fixup-backend.herokuapp.com/']
+ALLOWED_HOSTS = [
+    'https://fixup-backend.herokuapp.com/',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
@@ -75,27 +78,27 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fix_up_development',
-        'USER': 'fix_up_user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    }
-}
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('DB_NAME', ''),
-#         'USER': os.environ.get('DB_USER', ''),
-#         'PASSWORD': os.environ.get('DB_PASS', ''),
+#         'NAME': 'fix_up_development',
+#         'USER': 'fix_up_user',
+#         'PASSWORD': 'password',
 #         'HOST': 'localhost',
 #         'PORT': '5432'
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 
 # Password validation
