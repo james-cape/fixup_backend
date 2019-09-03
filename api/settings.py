@@ -26,7 +26,7 @@ SECRET_KEY = 'eyq0s5t6l%&5os1v#3(4knqm_#0%&6_uf9s)x7eyopn4e=$@na'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://fixup-backend.herokuapp.com/',
+    'fixup-backend.herokuapp.com',
     '127.0.0.1'
     ]
 
