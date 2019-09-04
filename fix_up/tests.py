@@ -14,10 +14,10 @@ class CreateContractorsTest(BaseTest):
         'email': 'test@mail.com',
         'phone_number': '111111111',
         'zip': '80124',
-        'specialty': 'construction',
+        'category': 'construction',
         'logo': 'logo.jpg'
         }
-        response = self.client.post('/api/v1/contracors/', data, format='json')
+        response = self.client.post('/api/v1/contractors/', data, format='json')
 
         # import code; code.interact(local=dict(globals(), **locals()))
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -25,5 +25,5 @@ class CreateContractorsTest(BaseTest):
         self.assertEqual(response.data['email'], 'test@mail.com')
         self.assertEqual(response.data['phone_number'], '111111111')
         self.assertEqual(response.data['zip'], '80124')
-        self.assertEqual(response.data['specialty'], 'construction')
+        self.assertEqual(response.data['category'], 'construction')
         self.assertEqual(response.data['logo'], 'logo.jpg')

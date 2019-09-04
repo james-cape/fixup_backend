@@ -4,4 +4,4 @@ from .models import Contractors
 class ContractorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contractors
-        fields = ('name', 'email', 'phone_number', 'zip', 'specialty', 'logo')
+        fields = ('name', 'email', 'phone_number', 'zip', 'category', 'logo')

@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import CreateContratorView
+from .views import CreateContractorView
 
 urlpatterns = [
-    path('contracors/', CreateContratorView.as_view())
+    path('contractors/', CreateContractorView.as_view())
 ]
