@@ -1,2 +1,3 @@
 /api/__pycache__/*
 /fix_up/__pycache__/*
+/fix_up/migrations/__pycache__/*
