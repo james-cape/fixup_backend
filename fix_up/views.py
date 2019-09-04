@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Contractors
+from .serializers import ContractorSerializer
 
-# Create your views here.
+class CreateContratorView(generics.CreateAPIView):
+    queryset = Contractors.objects.all()
+    serializer_class = ContractorSerializer
