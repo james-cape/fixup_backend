@@ -27,3 +27,36 @@ class CreateContractorsTest(BaseTest):
         self.assertEqual(response.data['zip'], '80124')
         self.assertEqual(response.data['category'], 'construction')
         self.assertEqual(response.data['logo'], 'logo.jpg')
+
+class UpdateContractorsTest(BaseTest):
+    def test_it_can_update_a_contractor(self):
+        data = {
+        'name': 'user_1',
+        'email': 'user_1@mail.com',
+        'phone_number': '111111111',
+        'zip': '80124',
+        'category': 'construction',
+        'logo': 'logo.jpg'
+        }
+        response = self.client.post('/api/v1/contractors/', data, format='json')
+        self.assertEqual(Contractors.objects.all()[0].name, 'user_1')
+        self.assertEqual(Contractors.objects.all()[0].email, 'user_1@mail.com')
+
+        # Tests changing just the name
+        update_data = {
+        'name': 'new_name_1'
+        }
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{Contractors.objects.all()[0].id}', update_data, format='json')
+        self.assertEqual(Contractors.objects.all()[0].name, 'new_name_1')
+        self.assertEqual(Contractors.objects.all()[0].email, 'user_1@mail.com')
+        self.assertEqual(update_response_1.status_code, 200)
+
+        # Tests changing just the name again as well as the email
+        update_data = {
+        'name': 'new_name_2',
+        'email': 'new_user_1@mail.com'
+        }
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{Contractors.objects.all()[0].id}', update_data, format='json')
+        self.assertEqual(Contractors.objects.all()[0].name, 'new_name_2')
+        self.assertEqual(Contractors.objects.all()[0].email, 'new_user_1@mail.com')
+        self.assertEqual(update_response_1.status_code, 200)
