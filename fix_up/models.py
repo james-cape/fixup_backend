@@ -1,6 +1,6 @@
 from django.db import models
 
-class Contractors(models.Model):
+class Contractor(models.Model):
     name = models.CharField(null=False, max_length=255)
     email = models.EmailField()
     phone_number = models.CharField(null=False, max_length=255)

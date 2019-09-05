@@ -3,6 +3,6 @@ from .views import CreateContractorView
 from .views import SingleContractorView
 
 urlpatterns = [
-    path('contractors/', CreateContractorView.as_view()),
-    path('contractors/<int:pk>', SingleContractorView.as_view()),
+    path('Contractor/', CreateContractorView.as_view()),
+    path('Contractor/<int:pk>', SingleContractorView.as_view()),
 ]
