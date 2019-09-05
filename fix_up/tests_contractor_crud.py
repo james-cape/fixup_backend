@@ -19,7 +19,6 @@ class CreateContractorTest(BaseTest):
         }
         response = self.client.post('/api/v1/Contractor/', data, format='json')
 
-        # import code; code.interact(local=dict(globals(), **locals()))
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], 'Builder Bob')
         self.assertEqual(response.data['email'], 'test@mail.com')
