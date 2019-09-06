@@ -38,6 +38,7 @@ class ContractorProject(models.Model):
     contractor = models.ForeignKey('Contractor', on_delete=models.PROTECT)
     contractor_choice = models.IntegerField()
     user_choice = models.BooleanField()
+    seen = models.BooleanField()
     completed = models.BooleanField()
     contractor_before_picture = models.CharField(null=False, max_length=1000)
     contractor_after_picture = models.CharField(null=False, max_length=1000)
