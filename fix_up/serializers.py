@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Contractors
+from .models import Contractor
 
-class ContractorSerializer(serializers.ModelSerializer):
+class Contractorerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contractors
+        model = Contractor
         fields = ('name', 'email', 'phone_number', 'zip', 'category', 'logo')
