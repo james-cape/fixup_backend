@@ -4,7 +4,7 @@ from .models import Contractor
 from .models import ContractorProject
 from .models import Project
 from .models import User
-from .serializers import Contractorerializer
+from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()
@@ -72,6 +72,7 @@ class CreateContractorProjectTest(BaseTest):
             contractor_choice=0,
             user_choice=False,
             completed=False,
+            seen=False,
             contractor_before_picture='picture.png',
             contractor_after_picture='picture.png',
             user_rating=5,
@@ -85,6 +86,7 @@ class CreateContractorProjectTest(BaseTest):
             contractor_choice=0,
             user_choice=False,
             completed=False,
+            seen=False,
             contractor_before_picture='picture.png',
             contractor_after_picture='picture.png',
             user_rating=5,
