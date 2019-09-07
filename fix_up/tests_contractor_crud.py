@@ -1,7 +1,7 @@
 from rest_framework.test import APITestCase, APIClient, APIRequestFactory
 from rest_framework.views import status
 from .models import Contractor
-from .serializers import Contractorerializer
+from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()

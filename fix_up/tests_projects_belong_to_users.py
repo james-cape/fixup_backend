@@ -4,7 +4,7 @@ from .models import Contractor
 from .models import ContractorProject
 from .models import Project
 from .models import User
-from .serializers import Contractorerializer
+from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()
@@ -54,7 +54,7 @@ class CreateContractorProjectTest(BaseTest):
             user_after_picture='picture.png'
         )
         project_2.save()
-        import code; code.interact(local=dict(globals(), **locals()))
+
         self.assertEqual(project_1.user, user_1)
         self.assertEqual(project_2.user, user_1)
         self.assertEqual(user_1.project_set.all()[1].title, 'project_numero_uno')

@@ -28,7 +28,7 @@ class Project(models.Model):
     description = models.CharField(null=False, max_length=1000)
     category = models.CharField(null=False, max_length=255)
     user_before_picture = models.CharField(max_length=255)
-    user_after_picture = models.CharField(max_length=255)
+    user_after_picture = models.CharField(null=True, max_length=255)
 
     def __str__(self):
         return "{} - {}".format(self.user, self.title, self.description, self.category, self.user_before_picture, self.user_after_picture)
@@ -41,7 +41,7 @@ class ContractorProject(models.Model):
     seen = models.BooleanField()
     completed = models.BooleanField()
     contractor_before_picture = models.CharField(null=False, max_length=1000)
-    contractor_after_picture = models.CharField(null=False, max_length=1000)
+    contractor_after_picture = models.CharField(default=None, null=False, max_length=1000)
     user_rating = models.IntegerField()
     contractor_rating = models.IntegerField()
 
