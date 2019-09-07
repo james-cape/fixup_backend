@@ -24,6 +24,7 @@ class User(models.Model):
 
 class Project(models.Model):
     user = models.ForeignKey('User', on_delete=models.PROTECT)
+    contractors = models.ManyToManyField('Contractor', related_name="contractor_list", blank=True)
     title = models.CharField(null=False, max_length=255)
     description = models.CharField(null=False, max_length=1000)
     category = models.CharField(null=False, max_length=255)
