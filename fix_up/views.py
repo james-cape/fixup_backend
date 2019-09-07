@@ -33,7 +33,19 @@ class ListProjectsByContractor(generics.ListAPIView):
         return [element.project for element in user_choice_filtered]
 
 class ListProjectBatchView(generics.ListAPIView):
-    serializer_class = ContractorSerializer
+    serializer_class = ProjectSerializer
     def get_queryset(self):
-        contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])
-        
+        contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])[0]
+        projects = Project.objects.filter(category=contractor.category)
+        ContractorProject.objects.create(contractor=contractor, project=projects[0])
+        ContractorProject.objects.create(contractor=contractor, project=projects[1])
+        ContractorProject.objects.create(contractor=contractor, project=projects[2])
+        ContractorProject.objects.create(contractor=contractor, project=projects[3])
+        ContractorProject.objects.create(contractor=contractor, project=projects[4])
+        ContractorProject.objects.create(contractor=contractor, project=projects[5])
+        ContractorProject.objects.create(contractor=contractor, project=projects[6])
+        ContractorProject.objects.create(contractor=contractor, project=projects[7])
+        ContractorProject.objects.create(contractor=contractor, project=projects[8])
+        ContractorProject.objects.create(contractor=contractor, project=projects[9])
+
+        return projects

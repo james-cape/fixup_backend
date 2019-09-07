@@ -3,6 +3,7 @@ from rest_framework.views import status
 from .models import Contractor
 from .models import User
 from .models import Project
+from .models import ContractorProject
 from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
@@ -134,3 +135,6 @@ class ProjectBatchTest(BaseTest):
         response = self.client.get('/api/v1/projects?contractor_id=1')
 
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]['title'], 'project_1')
+        self.assertEqual(response.data[0]['description'], 'this is the first project')
+        self.assertEqual(ContractorProject.objects.count(), 10)
