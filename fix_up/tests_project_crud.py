@@ -167,10 +167,8 @@ class ProjectCrudTest(BaseTest):
         contractor_project_3.save()
 
         response = self.client.get(f'/api/v1/Contractor/{contractor_1.id}/projects', format='json')
-        import code; code.interact(local=dict(globals(), **locals()))
-        # self.assertEqual(response.status_code, 200)
-        # self.assertEqual(response.data['title'], project_1.title)
-        # self.assertEqual(response.data['description'], project_1.description)
-        # self.assertEqual(response.data['category'], project_1.category)
-        # self.assertEqual(response.data['user_before_picture'], project_1.user_before_picture)
-        # self.assertEqual(response.data['user_after_picture'], None)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 2)
+        self.assertEqual(response.data[1]['title'], project_1.title)
+        self.assertEqual(response.data[0]['title'], project_2.title)

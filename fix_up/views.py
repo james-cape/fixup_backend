@@ -4,6 +4,7 @@ from .models import Project
 from .models import ContractorProject
 from .serializers import ContractorSerializer
 from .serializers import ProjectSerializer
+from .serializers import ContractorProjectSerializer
 
 #### Contractors
 class CreateContractorView(generics.CreateAPIView):
@@ -20,5 +21,7 @@ class SingleProjectView(generics.RetrieveAPIView):
     serializer_class = ProjectSerializer
 
 class ListProjectsByContractor(generics.ListAPIView):
-    queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    def get_queryset(self):
+        filtered = ContractorProject.objects.filter(contractor=self.kwargs["contractor_id"])
+        return [element.project for element in filtered]
