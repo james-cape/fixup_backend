@@ -167,7 +167,7 @@ class ProjectCrudTest(BaseTest):
         contractor_project_3.save()
 
         response = self.client.get(f'/api/v1/Contractor/{contractor_1.id}/projects', format='json')
-        # import code; code.interact(local=dict(globals(), **locals()))
+        import code; code.interact(local=dict(globals(), **locals()))
         # self.assertEqual(response.status_code, 200)
         # self.assertEqual(response.data['title'], project_1.title)
         # self.assertEqual(response.data['description'], project_1.description)

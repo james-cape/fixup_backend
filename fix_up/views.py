@@ -1,8 +1,10 @@
 from rest_framework import generics
 from .models import Contractor
 from .models import Project
+from .models import ContractorProject
 from .serializers import ContractorSerializer
 from .serializers import ProjectSerializer
+# from .serializers import ProjectSerializer
 
 #### Contractors
 class CreateContractorView(generics.CreateAPIView):
@@ -18,6 +20,6 @@ class SingleProjectView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
-class IndexProjectView(generics.ListAPIView):
+class ListProjectsByContractor(generics.ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
