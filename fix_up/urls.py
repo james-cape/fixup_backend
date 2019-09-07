@@ -6,5 +6,5 @@ from .views import SingleProjectView
 urlpatterns = [
     path('Contractor/', CreateContractorView.as_view()),
     path('Contractor/<int:pk>', SingleContractorView.as_view()),
-    path('project/<int:pk>', SingleProjectView.as_view()),
+    path('projects/<int:pk>', SingleProjectView.as_view()),
 ]

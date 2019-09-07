@@ -14,6 +14,6 @@ class SingleContractorView(generics.UpdateAPIView):
     serializer_class = ContractorSerializer
 
 #### Projects
-class SingleProjectView(generics.UpdateAPIView):
+class SingleProjectView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
