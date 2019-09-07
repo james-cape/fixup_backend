@@ -76,14 +76,13 @@ class UserSeesTheirProjectsTest(BaseTest):
             completed=False,
             seen=False,
             contractor_before_picture='picture.png',
-            contractor_after_picture='picture.png',
             user_rating=5,
             contractor_rating=5
         )
         contractor_project_1.save()
 
         response = self.client.get(f'/api/v1/users/{user_1.id}/projects', format='json')
-        import code; code.interact(local=dict(globals(), **locals()))
+        # import code; code.interact(local=dict(globals(), **locals()))
         # self.assertEqual(response.status_code, 200)
         # self.assertEqual(len(response.data), 2)
         # self.assertEqual(response.data[1]['title'], project_1.title)
