@@ -17,7 +17,7 @@ class CreateContractorTest(BaseTest):
         'category': 'construction',
         'logo': 'logo.jpg'
         }
-        response = self.client.post('/api/v1/Contractor/', data, format='json')
+        response = self.client.post('/api/v1/contractors/', data, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['name'], 'Builder Bob')
@@ -37,7 +37,7 @@ class UpdateContractorTest(BaseTest):
         'category': 'construction',
         'logo': 'logo.jpg'
         }
-        response = self.client.post('/api/v1/Contractor/', data, format='json')
+        response = self.client.post('/api/v1/contractors/', data, format='json')
         self.assertEqual(Contractor.objects.all()[0].name, 'user_1')
         self.assertEqual(Contractor.objects.all()[0].email, 'user_1@mail.com')
 
@@ -45,7 +45,7 @@ class UpdateContractorTest(BaseTest):
         update_data = {
         'name': 'new_name_1'
         }
-        update_response_1 = self.client.patch(f'/api/v1/Contractor/{Contractor.objects.all()[0].id}', update_data, format='json')
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{Contractor.objects.all()[0].id}', update_data, format='json')
         self.assertEqual(Contractor.objects.all()[0].name, 'new_name_1')
         self.assertEqual(Contractor.objects.all()[0].email, 'user_1@mail.com')
         self.assertEqual(update_response_1.status_code, 200)
@@ -55,7 +55,7 @@ class UpdateContractorTest(BaseTest):
         'name': 'new_name_2',
         'email': 'new_user_1@mail.com'
         }
-        update_response_1 = self.client.patch(f'/api/v1/Contractor/{Contractor.objects.all()[0].id}', update_data, format='json')
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{Contractor.objects.all()[0].id}', update_data, format='json')
         self.assertEqual(Contractor.objects.all()[0].name, 'new_name_2')
         self.assertEqual(Contractor.objects.all()[0].email, 'new_user_1@mail.com')
         self.assertEqual(update_response_1.status_code, 200)

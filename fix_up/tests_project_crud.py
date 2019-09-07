@@ -177,7 +177,7 @@ class ProjectCrudTest(BaseTest):
         )
         contractor_project_4.save()
 
-        response = self.client.get(f'/api/v1/Contractor/{contractor_1.id}/projects', format='json')
+        response = self.client.get(f'/api/v1/contractors/{contractor_1.id}/projects', format='json')
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
