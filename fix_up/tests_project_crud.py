@@ -97,8 +97,7 @@ class ProjectCrudTest(BaseTest):
             title='project_numero_uno',
             description='this is the first project',
             category='plumbing',
-            user_before_picture='picture.png',
-            user_after_picture='picture.png'
+            user_before_picture='picture.png'
         )
         project_1.save()
 
@@ -108,19 +107,17 @@ class ProjectCrudTest(BaseTest):
             title='project_numero_dos',
             description='this is the second project',
             category='plumbing',
-            user_before_picture='picture.png',
-            user_after_picture='picture.png'
+            user_before_picture='picture.png'
         )
         project_2.save()
 
         project_3 = Project(
             id=3,
             user=user_1,
-            title='project_numero_dos',
-            description='this is the second project',
+            title='project_numero_tres',
+            description='this is the third project',
             category='plumbing',
-            user_before_picture='picture.png',
-            user_after_picture='picture.png'
+            user_before_picture='picture.png'
         )
         project_3.save()
 
@@ -128,7 +125,7 @@ class ProjectCrudTest(BaseTest):
             project=project_1,
             contractor=contractor_1,
             contractor_choice=0,
-            user_choice=False,
+            user_choice=True,
             completed=False,
             seen=False,
             contractor_before_picture='picture.png',
@@ -156,7 +153,7 @@ class ProjectCrudTest(BaseTest):
             project=project_2,
             contractor=contractor_1,
             contractor_choice=0,
-            user_choice=False,
+            user_choice=True,
             seen=False,
             completed=False,
             contractor_before_picture='picture.png',
@@ -165,6 +162,20 @@ class ProjectCrudTest(BaseTest):
             contractor_rating=5
         )
         contractor_project_3.save()
+
+        contractor_project_4 = ContractorProject(
+            project=project_3,
+            contractor=contractor_1,
+            contractor_choice=0,
+            user_choice=False,
+            seen=False,
+            completed=False,
+            contractor_before_picture='picture.png',
+            contractor_after_picture='picture.png',
+            user_rating=5,
+            contractor_rating=5
+        )
+        contractor_project_4.save()
 
         response = self.client.get(f'/api/v1/Contractor/{contractor_1.id}/projects', format='json')
 
