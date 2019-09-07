@@ -27,3 +27,9 @@ class ListProjectsByContractor(generics.ListAPIView):
         contractor_filtered = ContractorProject.objects.filter(contractor=self.kwargs["contractor_id"])
         user_choice_filtered = contractor_filtered.filter(user_choice=True)
         return [element.project for element in user_choice_filtered]
+
+#### Users
+class ListProjectsByUser(generics.ListAPIView):
+    serializer_class = ProjectSerializer
+    def get_queryset(self):
+        return Project.objects.filter(user=self.kwargs["user_id"])
