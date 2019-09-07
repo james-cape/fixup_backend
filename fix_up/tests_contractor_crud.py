@@ -59,3 +59,26 @@ class UpdateContractorTest(BaseTest):
         self.assertEqual(Contractor.objects.all()[0].name, 'new_name_2')
         self.assertEqual(Contractor.objects.all()[0].email, 'new_user_1@mail.com')
         self.assertEqual(update_response_1.status_code, 200)
+
+class SendProjectBatch(BaseTest):
+
+    def test_it_can_send_ten_projects(self):
+        contractor = Contractor(
+            name='Mario',
+            email='test@mail.com',
+            phone_number='111111111',
+            zip='80124',
+            category='plumbing',
+            logo='logo.jpg'
+        )
+        contractor.save()
+
+        user = User(
+            full_name='Princess',
+            email='another_castle@mail.com',
+            phone_number='1234566',
+            zip='12345'
+        )
+        user.save()
+
+        Project
