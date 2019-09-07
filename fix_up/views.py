@@ -1,4 +1,8 @@
 from rest_framework import generics
+import json
+from rest_framework.views import APIView
+from django.http import HttpResponse
+from django.http import HttpRequest
 from .models import Contractor
 from .models import Project
 from .models import ContractorProject
@@ -27,3 +31,9 @@ class ListProjectsByContractor(generics.ListAPIView):
         contractor_filtered = ContractorProject.objects.filter(contractor=self.kwargs["contractor_id"])
         user_choice_filtered = contractor_filtered.filter(user_choice=True)
         return [element.project for element in user_choice_filtered]
+
+class ListProjectBatchView(generics.ListAPIView):
+    serializer_class = ContractorSerializer
+    def get_queryset(self):
+        contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])
+        
