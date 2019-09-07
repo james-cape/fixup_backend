@@ -41,7 +41,7 @@ class ContractorProject(models.Model):
     seen = models.BooleanField()
     completed = models.BooleanField()
     contractor_before_picture = models.CharField(null=False, max_length=1000)
-    contractor_after_picture = models.CharField(default=False, null=False, max_length=1000)
+    contractor_after_picture = models.CharField(default=None, null=False, max_length=1000)
     user_rating = models.IntegerField()
     contractor_rating = models.IntegerField()
 
