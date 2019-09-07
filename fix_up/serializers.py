@@ -19,7 +19,7 @@ class ContractorProjectSerializer(serializers.ModelSerializer):
         fields = ('project', 'contractor', 'contractor_choice', 'user_choice', 'seen', 'completed', 'contractor_before_picture', 'contractor_after_picture', 'user_rating', 'contractor_rating')
 
 class ProjectSerializerForUsers(serializers.ModelSerializer):
-    contractorproject_set = serializers.StringRelatedField(many=True)
+    contractorproject_set = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Project
