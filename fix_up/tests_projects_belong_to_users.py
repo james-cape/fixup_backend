@@ -4,7 +4,7 @@ from .models import Contractor
 from .models import ContractorProject
 from .models import Project
 from .models import User
-from .serializers import Contractorerializer
+from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()
