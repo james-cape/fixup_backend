@@ -4,7 +4,6 @@ from .models import Project
 from .models import ContractorProject
 from .serializers import ContractorSerializer
 from .serializers import ProjectSerializer
-# from .serializers import ProjectSerializer
 
 #### Contractors
 class CreateContractorView(generics.CreateAPIView):
