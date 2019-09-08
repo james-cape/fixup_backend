@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import CreateUserView
+from .views import CreateProjectView
 from .views import CreateContractorView
 from .views import SingleContractorView
 from .views import SingleProjectView
@@ -15,6 +16,5 @@ urlpatterns = [
     path('projects/<int:pk>', SingleProjectView.as_view()),
     path('contractors/<int:contractor_id>/projects', ListProjectsByContractor.as_view()),
     path('users/<int:user_id>/projects', ListProjectsByUser.as_view()),
-    path('projects', ListProjectBatchView.as_view()),
-    # path('users/<int:user_id>/projects', CreateProjectForUser.as_view())
+    path('projects', ListProjectBatchView.as_view())
 ]
