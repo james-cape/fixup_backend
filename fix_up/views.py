@@ -47,8 +47,25 @@ class CreateUserView(generics.CreateAPIView):
 class ListProjectsByUser(APIView):
     renderer_classes = [JSONRenderer]
     def post(self, request, **kwargs):
-        user = User.objects.filter(id=self.kwargs['user_id'])
-        import code; code.interact(local=dict(globals(), **locals()))
+        user = User.objects.filter(id=self.kwargs['user_id'])[0]
+        project_data= request.data
+        project = Project(
+            user=user,
+            title=project_data['title'],
+            description=project_data['description'],
+            category=project_data['category'],
+            user_before_picture=project_data['user_before_picture']
+        )
+        project.save()
+
+        return Response({
+            'user_id': user.id,
+            'project': {
+                'title': project.title,
+                'description': project.description,
+                'picture': project.user_before_picture
+            }
+        }, status=201)
 
     def get(self, request, **kwargs):
         queryset = []

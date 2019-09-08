@@ -204,7 +204,6 @@ class CreateProjectTest(BaseTest):
         response = self.client.post('/api/v1/users/2/projects', data, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['title'], 'project_numero_tres')
-        self.assertEqual(response.data['description'], 'this is the third project')
-        self.assertEqual(response.data['category'], 'plumbing')
-        self.assertEqual(response.data['user_before_picture'], 'picture.png')
+        self.assertEqual(response.data['project']['title'], 'project_numero_tres')
+        self.assertEqual(response.data['project']['description'], 'this is the third project')
+        self.assertEqual(response.data['project']['picture'], 'picture.png')
