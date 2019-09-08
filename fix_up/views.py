@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from .models import Contractor
 from .models import Project
 from .models import ContractorProject
+from .serializers import UserSerializer
 from .serializers import ContractorSerializer
 from .serializers import ProjectSerializer
 from .serializers import ContractorProjectSerializer
@@ -38,6 +39,10 @@ class ListProjectsByContractor(generics.ListAPIView):
         return [element.project for element in user_choice_filtered]
 
 #### Users
+class CreateUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 # Gets a list of projects (with contractors)
 class ListProjectsByUser(APIView):
     renderer_classes = [JSONRenderer]
