@@ -1,0 +1,61 @@
+[
+  {
+    "model": "fix_up.contractorproject",
+    "pk": 1,
+    "fields": {
+      "contractor_id": 1,
+      "project_id": 1,
+      "contractor_choice": 2,
+      "user_choice": "True",
+      "seen": "False",
+      "completed": "False"
+    }
+  },
+  {
+    "model": "fix_up.contractorproject",
+    "pk": 2,
+    "fields": {
+      "contractor_id": 2,
+      "project_id": 31,
+      "contractor_choice": 1
+    }
+  },
+  {
+    "model": "fix_up.contractorproject",
+    "pk": 3,
+    "fields": {
+      "contractor_id": 3,
+      "project_id": 33,
+      "contractor_choice": 2,
+      "user_choice": "True",
+      "seen": "True",
+      "completed": "True",
+      "user_rating": 5,
+      "contractor_rating": 4
+    }
+  },
+  {
+    "model": "fix_up.contractorproject",
+    "pk": 4,
+    "fields": {
+      "contractor_id": 4,
+      "project_id": 24,
+      "contractor_choice": 2,
+      "user_choice": "True",
+      "seen": "True",
+      "completed": "True",
+      "user_rating": 1,
+      "contractor_rating": 1
+    }
+  },
+  {
+    "model": "fix_up.contractorproject",
+    "pk": 5,
+    "fields": {
+      "contractor_id": 5,
+      "project_id": 25,
+      "contractor_choice": 2,
+      "user_choice": "False"
+    }
+  }
+]
