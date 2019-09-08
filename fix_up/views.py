@@ -41,7 +41,8 @@ class ListProjectsByUser(APIView):
         queryset = []
         user_projects = Project.objects.filter(user=self.kwargs["user_id"])
         for user_project in user_projects:
-            contractor_projects = user_project.contractorproject_set.all()
+            contractor_projects = user_project.contractorproject_set.filter(contractor_choice=2)
+            # contractor_projects = user_project.contractorproject_set.all()
             contractor_accumulator = []
             for contractor_project in contractor_projects:
                 contractor_accumulator.append({

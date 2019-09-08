@@ -58,7 +58,6 @@ class UserSeesTheirProjectsTest(BaseTest):
         project_3.save()
 
         contractor_1 = Contractor(
-            id=1,
             name='Mario',
             email='mario@mail.com',
             phone_number='111111111',
@@ -69,6 +68,18 @@ class UserSeesTheirProjectsTest(BaseTest):
             example_project_2='picture.png'
         )
         contractor_1.save()
+
+        contractor_2 = Contractor(
+            name='Luigi',
+            email='Luigi@mail.com',
+            phone_number='222222222',
+            zip='80224',
+            category='plumbing',
+            logo='logo.jpg',
+            example_project_1='picture.png',
+            example_project_2='picture.png'
+        )
+        contractor_2.save()
 
         contractor_project_1 = ContractorProject(
             project=project_2,
@@ -83,9 +94,31 @@ class UserSeesTheirProjectsTest(BaseTest):
         )
         contractor_project_1.save()
 
+        contractor_project_2 = ContractorProject(
+            project=project_2,
+            contractor=contractor_2,
+            contractor_choice=2,
+            user_choice=True,
+            completed=False,
+            seen=False,
+            contractor_before_picture='picture.png',
+            user_rating=5,
+            contractor_rating=5
+        )
+        contractor_project_2.save()
+
         response = self.client.get(f'/api/v1/users/{user_1.id}/projects', format='json')
-        import code; code.interact(local=dict(globals(), **locals()))
+
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
-        # self.assertEqual(response.data[1]['title'], project_1.title)
-        # self.assertEqual(response.data[0]['title'], project_2.title)
+        self.assertEqual(response.data[0]['id'], project_2.id)
+        self.assertEqual(response.data[0]['title'], project_2.title)
+        self.assertEqual(response.data[0]['description'], project_2.description)
+        self.assertEqual(response.data[0]['category'], project_2.category)
+        self.assertEqual(response.data[0]['user_before_picture'], project_2.user_before_picture)
+        self.assertEqual(response.data[0]['user_after_picture'], project_2.user_after_picture)
+        self.assertEqual(response.data[0]['contractors'][0], {
+            'contractor_id': contractor_2.id,
+            'picture_1': contractor_2.example_project_1,
+            'picture_2': contractor_2.example_project_2
+        })
