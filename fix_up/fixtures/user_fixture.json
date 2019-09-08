@@ -1,0 +1,52 @@
+[
+  {
+    "model": "fix_up.user",
+    "pk": 1,
+    "fields": {
+      "full_name": "Mario Mario",
+      "email": "jumpman@gmail.com",
+      "phone_number": "3035555555",
+      "zip": "80555"
+    }
+  },
+  {
+    "model": "fix_up.user",
+    "pk": 2,
+    "fields": {
+      "full_name": "Luigi Mario",
+      "email": "betterbrother@gmail.com",
+      "phone_number": "3035555556",
+      "zip": "80555"
+    }
+  },
+  {
+    "model": "fix_up.user",
+    "pk": 3,
+    "fields": {
+      "full_name": "Peach Toadstool",
+      "email": "princess@gmail.com",
+      "phone_number": "3035555557",
+      "zip": "80555"
+    }
+  },
+  {
+    "model": "fix_up.user",
+    "pk": 4,
+    "fields": {
+      "full_name": "Toad",
+      "email": "citizen@gmail.com",
+      "phone_number": "3035555558",
+      "zip": "80555"
+    }
+  },
+  {
+    "model": "fix_up.user",
+    "pk": 5,
+    "fields": {
+      "full_name": "Bowser",
+      "email": "kingkoopa@gmail.com",
+      "phone_number": "3035555559",
+      "zip": "80556"
+    }
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "model": "fix_up.contractor",
+    "pk": 1,
+    "fields": {
+      "name": "Plumbing Person",
+      "email": "plumbing@gmail.com",
+      "phone_number": "7205555555",
+      "zip": "80555",
+      "category": "plumbing",
+      "logo": "plumbinglogo.png"
+    }
+  },
+  {
+    "model": "fix_up.contractor",
+    "pk": 2,
+    "fields": {
+      "name": "Landscaping Person",
+      "email": "landscaping@gmail.com",
+      "phone_number": "7205555556",
+      "zip": "80555",
+      "category": "landscaping",
+      "logo": "landscapinglogo.png"
+    }
+  },
+  {
+    "model": "fix_up.contractor",
+    "pk": 3,
+    "fields": {
+      "name": "Electrician Person",
+      "email": "electrician@gmail.com",
+      "phone_number": "7205555557",
+      "zip": "80555",
+      "category": "electrician",
+      "logo": "electricianlogo.png"
+    }
+  },
+  {
+    "model": "fix_up.contractor",
+    "pk": 4,
+    "fields": {
+      "name": "Drywall Person",
+      "email": "drywall@gmail.com",
+      "phone_number": "7205555558",
+      "zip": "80555",
+      "category": "drywall",
+      "logo": "drywalllogo.png"
+    }
+  },
+  {
+    "model": "fix_up.contractor",
+    "pk": 5,
+    "fields": {
+      "name": "Carpentry Person",
+      "email": "carpentry@gmail.com",
+      "phone_number": "7205555559",
+      "zip": "80555",
+      "category": "carpentry",
+      "logo": "carpentrylogo.png"
+    }
+  }
+]

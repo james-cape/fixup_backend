@@ -24,7 +24,6 @@ class User(models.Model):
         return "{} - {}".format(self.full_name, self.email, self.phone_number, self.zip)
 
 class Project(models.Model):
-    contractors = models.ManyToManyField('Contractor', related_name="contractor_list", blank=True)
     user = models.ForeignKey('User', on_delete=models.PROTECT)
     contractors = models.ManyToManyField('Contractor', related_name="contractor_list", blank=True)
     title = models.CharField(null=False, max_length=255)
