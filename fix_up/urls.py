@@ -1,13 +1,11 @@
 from django.urls import path
 from .views import CreateUserView
-from .views import CreateProjectView
 from .views import CreateContractorView
 from .views import SingleContractorView
 from .views import SingleProjectView
 from .views import ListProjectsByContractor
 from .views import ListProjectsByUser
 from .views import ListProjectBatchView
-# from .views import CreateProjectForUser
 
 urlpatterns = [
     path('contractors/', CreateContractorView.as_view()),
