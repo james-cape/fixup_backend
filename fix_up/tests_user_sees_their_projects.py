@@ -64,12 +64,14 @@ class UserSeesTheirProjectsTest(BaseTest):
             phone_number='111111111',
             zip='80124',
             category='plumbing',
-            logo='logo.jpg'
+            logo='logo.jpg',
+            example_project_1='picture.png',
+            example_project_2='picture.png'
         )
         contractor_1.save()
 
         contractor_project_1 = ContractorProject(
-            project=project_1,
+            project=project_2,
             contractor=contractor_1,
             contractor_choice=0,
             user_choice=True,
