@@ -10,6 +10,10 @@ from .serializers import ContractorProjectSerializer
 from .serializers import ProjectSerializerForUsers
 from django.contrib.auth.models import User
 from rest_framework.renderers import JSONRenderer
+from rest_framework import generics
+import json
+from django.http import HttpResponse
+from django.http import HttpRequest
 
 #### Contractors
 class CreateContractorView(generics.CreateAPIView):
@@ -59,3 +63,21 @@ class ListProjectsByUser(APIView):
                 'contractors': contractor_accumulator
             })
         return Response(queryset)
+
+class ListProjectBatchView(generics.ListAPIView):
+    serializer_class = ProjectSerializer
+    def get_queryset(self):
+        contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])[0]
+        projects = Project.objects.filter(category=contractor.category)
+        ContractorProject.objects.create(contractor=contractor, project=projects[0])
+        ContractorProject.objects.create(contractor=contractor, project=projects[1])
+        ContractorProject.objects.create(contractor=contractor, project=projects[2])
+        ContractorProject.objects.create(contractor=contractor, project=projects[3])
+        ContractorProject.objects.create(contractor=contractor, project=projects[4])
+        ContractorProject.objects.create(contractor=contractor, project=projects[5])
+        ContractorProject.objects.create(contractor=contractor, project=projects[6])
+        ContractorProject.objects.create(contractor=contractor, project=projects[7])
+        ContractorProject.objects.create(contractor=contractor, project=projects[8])
+        ContractorProject.objects.create(contractor=contractor, project=projects[9])
+
+        return projects
