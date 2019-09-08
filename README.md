@@ -39,7 +39,7 @@ Status: 201 Created
 ```
 
 
-# <a name="create_project"></a>Create a Project
+# <a name="create_contractor"></a>Create a Contractor
 `https://fixup-backend.herokuapp.com/api/v1/contractors/`
 
 A POST request to `/api/v1/contractors/` takes a body with an object of keys:
@@ -79,16 +79,14 @@ Status: 201 Created
 ```
 
 
-# <a name="create_contractor"></a>Create a Contractor
+# <a name="create_project"></a>Create a Project
 `https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
 
 A POST request to `/api/v1/users/1/projects` takes a body with an object of keys:
-* `"name":`
-* `"email":`
-* `"phone_number":`
-* `"zip":`
+* `"title":`
+* `"description":`
 * `"category":`
-* `"logo":`
+* `"user_before_picture":`
 
 Example Request:
 ```
