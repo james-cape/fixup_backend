@@ -12,7 +12,7 @@ class Contractor(models.Model):
     example_project_2 = models.CharField(max_length=255)
 
     def __str__(self):
-        return "{} - {}".format(self.name, self.email, self.phone_number, self.zip, self.category, self.logo)
+        return "{} - {}".format(self.name, self.projects, self.email, self.phone_number, self.zip, self.category, self.logo)
 
 class User(models.Model):
     full_name = models.CharField(null=False, max_length=255)
@@ -26,6 +26,7 @@ class User(models.Model):
 class Project(models.Model):
     contractors = models.ManyToManyField('Contractor', related_name="contractor_list", blank=True)
     user = models.ForeignKey('User', on_delete=models.PROTECT)
+    contractors = models.ManyToManyField('Contractor', related_name="contractor_list", blank=True)
     title = models.CharField(null=False, max_length=255)
     description = models.CharField(null=False, max_length=1000)
     category = models.CharField(null=False, max_length=255)
@@ -33,7 +34,7 @@ class Project(models.Model):
     user_after_picture = models.CharField(null=True, max_length=255)
 
     def __str__(self):
-        return "{} - {}".format(self.user, self.title, self.description, self.category, self.user_before_picture, self.user_after_picture)
+        return "{} - {}".format(self.user, self.contractors, self.title, self.description, self.category, self.user_before_picture, self.user_after_picture)
 
 class ContractorProject(models.Model):
     project = models.ForeignKey('Project', on_delete=models.PROTECT)
