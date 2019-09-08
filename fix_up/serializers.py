@@ -19,8 +19,6 @@ class ContractorProjectSerializer(serializers.ModelSerializer):
         fields = ('project', 'contractor', 'contractor_choice', 'user_choice', 'seen', 'completed', 'contractor_before_picture', 'contractor_after_picture', 'user_rating', 'contractor_rating')
 
 class ProjectSerializerForUsers(serializers.ModelSerializer):
-    # contractorproject_set = ContractorProjectSerializer(many=True, read_only=True)
-
     class Meta:
         model = Project
         fields = ['id', 'title', 'description', 'category', 'user_before_picture', 'user_after_picture', 'contractors']
