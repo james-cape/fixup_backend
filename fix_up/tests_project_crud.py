@@ -183,3 +183,28 @@ class ProjectCrudTest(BaseTest):
         self.assertEqual(len(response.data), 2)
         self.assertEqual(response.data[1]['title'], project_1.title)
         self.assertEqual(response.data[0]['title'], project_2.title)
+
+class CreateProjectTest(BaseTest):
+
+    def test_it_can_create_a_project(self):
+        user_1 = User(
+            full_name='Princess',
+            email='another_castle@mail.com',
+            phone_number='1234566',
+            zip='12345'
+        )
+        user_1.save()
+
+        data = {
+            'title': 'project_numero_tres',
+            'description': 'this is the third project',
+            'category': 'plumbing',
+            'user_before_picture': 'picture.png'
+        }
+        response = self.client.post('/api/v1/users/2/projects', data, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['title'], 'project_numero_tres')
+        self.assertEqual(response.data['description'], 'this is the third project')
+        self.assertEqual(response.data['category'], 'plumbing')
+        self.assertEqual(response.data['user_before_picture'], 'picture.png')
