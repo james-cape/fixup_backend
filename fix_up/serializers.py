@@ -22,7 +22,7 @@ class ContractorProjectSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ('title', 'description', 'category', 'user_before_picture', 'user_after_picture')
+        fields = ('id', 'title', 'description', 'category', 'user_before_picture', 'user_after_picture')
 
 class ProjectSerializerForUsers(serializers.ModelSerializer):
     class Meta:
