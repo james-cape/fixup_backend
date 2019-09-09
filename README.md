@@ -1,6 +1,10 @@
 + [Create a User](#create_user)
 + [Create a Contractor](#create_contractor)
++ [Update a Contractor](#update_contractor)
 + [Create a Project](#create_project)
++ [See Project Show](#see_project_show)
++ [See Projects By User](#see_projects_by_user)
++ [See Projects By Contractor](#see_projects_by_contractor)
 
 
 
@@ -79,6 +83,42 @@ Status: 201 Created
 ```
 
 
+# <a name="update_contractor"></a>Update a Contractor
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1`
+
+A PATCH request to `/api/v1/contractors/:id` takes a body with an object of any combination or number of the following keys:
+* `"name":`
+* `"email":`
+* `"phone_number":`
+* `"zip":`
+* `"category":`
+* `"logo":`
+
+Example Request:
+```
+POST https://fixup-backend.herokuapp.com/api/v1/contractors/1
+
+Body; raw, JSON(application/json):
+{
+	"name": "new_name_1",
+	"email": "new_plumbing@gmail.com"
+}
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+    "name": "new_name_1",
+    "email": "new_plumbing@gmail.com",
+    "phone_number": "7205555555",
+    "zip": "80555",
+    "category": "plumbing",
+    "logo": "plumbinglogo.png"
+}
+```
+
+
 # <a name="create_project"></a>Create a Project
 `https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
 
@@ -112,4 +152,107 @@ Status: 201 Created
         "picture": "picture.png"
     }
 }
+```
+
+
+# <a name="see_project_show"></a>See Project Show
+`https://fixup-backend.herokuapp.com/api/v1/projects/1`
+
+A GET request to `/api/v1/projects/:id` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/projects/1
+```
+
+Example Response:
+(See last element for an example of a user's project which a contractor has swiped right on)
+```
+Status: 200 OK
+{
+  "title": "Broken Pipe",
+  "description": "A pipe in my bathroom is leaky",
+  "category": "plumbing",
+  "user_before_picture": "brokenpipe.png",
+  "user_after_picture": null
+}
+```
+
+
+# <a name="see_projects_by_user"></a>See Projects By User
+`https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
+
+A GET request to `/api/v1/users/:id/projects` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/users/1/projects
+```
+
+Example Response:
+(See last element for an example of a user's project which a contractor has swiped right on)
+```
+Status: 200 OK
+[
+  {
+    "id": 5,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": []
+  },
+  {
+    "id": 4,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": []
+  },
+  {
+    "id": 1,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": [
+      {
+        "contractor_id": 1,
+        "picture_1": "",
+        "picture_2": ""
+      }
+    ]
+  }
+]
+```
+
+
+# <a name="see_projects_by_contractor"></a>See Projects By Contractor
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects`
+
+A GET request to `/api/v1/contractors/:id/projects` which takes no body.
+
+Results are only returned if `user_choice = True` (contractor swiped right and customer chose )
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects
+```
+
+Example Response:
+```
+Status: 200 OK
+[
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  }
+]
 ```
