@@ -1,5 +1,6 @@
 + [Create a User](#create_user)
 + [Create a Contractor](#create_contractor)
++ [See a single Contractor](#see_a_single_contractor)
 + [Update a Contractor](#update_contractor)
 + [Create a Project](#create_project)
 + [See User Show](#see_user_show)
@@ -37,10 +38,10 @@ Example Response:
 ```
 Status: 201 Created
 {
-    "full_name": "user_1_name",
-    "email": "user_1_email@email.com",
-    "phone_number": "3333333",
-    "zip": "98765"
+  "full_name": "user_1_name",
+  "email": "user_1_email@email.com",
+  "phone_number": "3333333",
+  "zip": "98765"
 }
 ```
 
@@ -75,12 +76,36 @@ Example Response:
 ```
 Status: 201 Created
 {
-    "name": "Builder Bob",
-    "email": "test@mail.com",
-    "phone_number": "111111111",
-    "zip": "80124",
-    "category": "construction",
-    "logo": "logo.jpg"
+  "name": "Builder Bob",
+  "email": "test@mail.com",
+  "phone_number": "111111111",
+  "zip": "80124",
+  "category": "construction",
+  "logo": "logo.jpg"
+}
+```
+
+
+# <a name="see_a_single_contractor"></a>See a Single Contractor
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1`
+
+A GET request to `/api/v1/contractors/:id` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/contractors/1
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+  "name": "new_name_1",
+  "email": "new_plumbing@gmail.com",
+  "phone_number": "7205555555",
+  "zip": "80555",
+  "category": "plumbing",
+  "logo": "plumbinglogo.png"
 }
 ```
 
@@ -111,12 +136,12 @@ Example Response:
 ```
 Status: 200 OK
 {
-    "name": "new_name_1",
-    "email": "new_plumbing@gmail.com",
-    "phone_number": "7205555555",
-    "zip": "80555",
-    "category": "plumbing",
-    "logo": "plumbinglogo.png"
+  "name": "new_name_1",
+  "email": "new_plumbing@gmail.com",
+  "phone_number": "7205555555",
+  "zip": "80555",
+  "category": "plumbing",
+  "logo": "plumbinglogo.png"
 }
 ```
 
@@ -147,12 +172,12 @@ Example Response:
 ```
 Status: 201 Created
 {
-    "user_id": 1,
-    "project": {
-        "title": "newly uploaded project",
-        "description": "this is the third project",
-        "picture": "picture.png"
-    }
+  "user_id": 1,
+  "project": {
+    "title": "newly uploaded project",
+    "description": "this is the third project",
+    "picture": "picture.png"
+  }
 }
 ```
 
