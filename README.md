@@ -5,6 +5,7 @@
 + [See Project Show](#see_project_show)
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
++ [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
 
 
 
@@ -252,6 +253,178 @@ Status: 200 OK
     "description": "A pipe in my bathroom is leaky",
     "category": "plumbing",
     "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  }
+]
+```
+
+
+# <a name="get_batch_of_projects_via_contractor_id"></a>Get Batch of Projects via Contractor ID
+`https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=6`
+
+A GET request to `/api/v1/contractors/:id/projects?contractor_id=:id` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=6
+```
+
+Example Response:
+```
+Status: 200 OK
+[
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "title": "newly uploaded project",
+    "description": "this is the third project",
+    "category": "plumbing",
+    "user_before_picture": "picture.png",
     "user_after_picture": null
   }
 ]
