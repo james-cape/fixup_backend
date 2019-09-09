@@ -43,7 +43,7 @@ class ShowUserTest(BaseTest):
         )
         user_2.save()
 
-        response = self.client.get(f'/api/v1/users/{user_1.id}', data, format='json')
+        response = self.client.get(f'/api/v1/users/{user_1.id}', format='json')
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['full_name'], user_1.full_name)
