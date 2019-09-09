@@ -2,6 +2,7 @@
 + [Create a Contractor](#create_contractor)
 + [Update a Contractor](#update_contractor)
 + [Create a Project](#create_project)
++ [See Project Show](#see_project_show)
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
 
@@ -154,6 +155,30 @@ Status: 201 Created
 ```
 
 
+# <a name="see_project_show"></a>See Project Show
+`https://fixup-backend.herokuapp.com/api/v1/projects/1`
+
+A GET request to `/api/v1/projects/:id` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/projects/1
+```
+
+Example Response:
+(See last element for an example of a user's project which a contractor has swiped right on)
+```
+Status: 200 OK
+{
+  "title": "Broken Pipe",
+  "description": "A pipe in my bathroom is leaky",
+  "category": "plumbing",
+  "user_before_picture": "brokenpipe.png",
+  "user_after_picture": null
+}
+```
+
+
 # <a name="see_projects_by_user"></a>See Projects By User
 `https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
 
@@ -210,6 +235,8 @@ Status: 200 OK
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects`
 
 A GET request to `/api/v1/contractors/:id/projects` which takes no body.
+
+Results are only returned if `user_choice = True` (contractor swiped right and customer chose )
 
 Example Request:
 ```
