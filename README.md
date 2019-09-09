@@ -3,6 +3,7 @@
 + [Update a Contractor](#update_contractor)
 + [Create a Project](#create_project)
 + [See Projects By User](#see_projects_by_user)
++ [See Projects By Contractor](#see_projects_by_contractor)
 
 
 
@@ -168,83 +169,63 @@ Example Response:
 ```
 Status: 200 OK
 [
-    {
-        "id": 36,
-        "title": "newly uploaded project",
-        "description": "this is the third project",
-        "category": "plumbing",
-        "user_before_picture": "picture.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 7,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 6,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 5,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 4,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 3,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 2,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": []
-    },
-    {
-        "id": 1,
-        "title": "Broken Pipe",
-        "description": "A pipe in my bathroom is leaky",
-        "category": "plumbing",
-        "user_before_picture": "brokenpipe.png",
-        "user_after_picture": null,
-        "contractors": [
-            {
-                "contractor_id": 1,
-                "picture_1": "",
-                "picture_2": ""
-            }
-        ]
-    }
+  {
+    "id": 5,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": []
+  },
+  {
+    "id": 4,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": []
+  },
+  {
+    "id": 1,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null,
+    "contractors": [
+      {
+        "contractor_id": 1,
+        "picture_1": "",
+        "picture_2": ""
+      }
+    ]
+  }
+]
+```
+
+
+# <a name="see_projects_by_contractor"></a>See Projects By Contractor
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects`
+
+A GET request to `/api/v1/contractors/:id/projects` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects
+```
+
+Example Response:
+```
+Status: 200 OK
+[
+  {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  }
 ]
 ```
