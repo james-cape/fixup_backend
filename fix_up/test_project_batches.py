@@ -133,8 +133,8 @@ class ProjectBatchTest(BaseTest):
         BaseTest.set_up()
 
         response = self.client.get('/api/v1/projects?contractor_id=1')
-
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data[0]['id'], 1)
         self.assertEqual(response.data[0]['title'], 'project_1')
         self.assertEqual(response.data[0]['description'], 'this is the first project')
         self.assertEqual(ContractorProject.objects.count(), 10)
