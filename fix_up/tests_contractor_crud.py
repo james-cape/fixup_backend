@@ -8,27 +8,6 @@ class BaseTest(APITestCase):
 
 class RetrieveContractorTest(BaseTest):
 
-    def test_it_can_get_a_single_contractor_info(self):
-        contractor_1 = Contractor(
-            name='Mario',
-            email='test@mail.com',
-            phone_number='111111111',
-            zip='80124',
-            category='plumbing',
-            logo='logo.jpg'
-        )
-        contractor.save()
-        
-        response = self.client.post(f'/api/v1/contractors/{contractor_1.id}', data, format='json')
-
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['name'], 'Builder Bob')
-        self.assertEqual(response.data['email'], 'test@mail.com')
-        self.assertEqual(response.data['phone_number'], '111111111')
-        self.assertEqual(response.data['zip'], '80124')
-        self.assertEqual(response.data['category'], 'construction')
-        self.assertEqual(response.data['logo'], 'logo.jpg')
-
     def test_it_can_create_a_contractor(self):
         data = {
         'name': 'Builder Bob',
