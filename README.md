@@ -2,6 +2,7 @@
 + [Create a Contractor](#create_contractor)
 + [Update a Contractor](#update_contractor)
 + [Create a Project](#create_project)
++ [See User Show](#see_user_show)
 + [See Project Show](#see_project_show)
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
@@ -152,6 +153,28 @@ Status: 201 Created
         "description": "this is the third project",
         "picture": "picture.png"
     }
+}
+```
+
+
+# <a name="see_user_show"></a>See User Show
+`https://fixup-backend.herokuapp.com/api/v1/users/1`
+
+A GET request to `/api/v1/users/:id` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/users/1
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+  "full_name": "Mario Mario",
+  "email": "jumpman@gmail.com",
+  "phone_number": "3035555555",
+  "zip": "80555"
 }
 ```
 
