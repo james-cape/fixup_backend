@@ -43,6 +43,10 @@ class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class SingleUserView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 # Gets a list of projects (with contractors)
 class ListProjectsByUser(APIView):
     renderer_classes = [JSONRenderer]
