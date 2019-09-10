@@ -122,3 +122,12 @@ class SwipeUpdateContractorChoiceView(APIView):
         return Response({
             'message': f'contractor_project contractor_choice updated to {int(self.request.query_params["contractor_choice"])}'
         }, status=204)
+
+class UpdateUserChoiceView(APIView):
+    renderer_classes = [JSONRenderer]
+    def patch(self, request, **kwargs):
+        target = ContractorProject.objects.filter(contractor_id=self.kwargs['contractor_id'], project_id=self.kwargs['project_id'])
+        target.update(user_choice=self.request.query_params["user_choice"])
+        return Response({
+            'message': f'contractor_project user_choice updated to {self.request.query_params["user_choice"]}'
+        }, status=204)
