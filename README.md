@@ -495,7 +495,7 @@ Example Swipe LEFT Request:
 PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1
 ```
 
-Example Swipe LEFT response:
+Example Swipe LEFT Response:
 ```
 Status: 204 Updated
 {
@@ -508,7 +508,7 @@ Example Swipe RIGHT Request:
 PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2
 ```
 
-Example Swipe RIGHT response:
+Example Swipe RIGHT Response:
 ```
 Status: 204 Updated
 {
@@ -522,12 +522,12 @@ Status: 204 Updated
 
 A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_choice=True` which takes no body.
 
-Example Swipe LEFT Request:
+Example Request:
 ```
 PATCH https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True
 ```
 
-Example Swipe LEFT response:
+Example Response:
 ```
 Status: 204 Updated
 {
