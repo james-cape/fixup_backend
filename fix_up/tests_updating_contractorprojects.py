@@ -83,8 +83,11 @@ class UserSelectsContractorTest(BaseTest):
 
         #### MARIO
         #### Tests updating contractor_project_1.user_choice to TRUE
-        update_response_1 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_1.id}?user_choice=True', format='json')
-        self.assertEqual(update_response_1.status_code, 204)
+        data_1 = {
+            "user_choice": True
+        }
+        update_response_1 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_1.id}', data_1, format='json')
+        self.assertEqual(update_response_1.status_code, 200)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, False)
         self.assertEqual(update_response_1.data['message'], "You've been Fixed Up!")
@@ -112,8 +115,11 @@ class UserSelectsContractorTest(BaseTest):
 
         #### WARIO
         #### Tests updating contractor_project_2.user_choice to TRUE
-        update_response_2 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_2.id}?user_choice=True', format='json')
-        self.assertEqual(update_response_2.status_code, 204)
+        data_2 = {
+            "user_choice": True
+        }
+        update_response_2 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_2.id}', data_2, format='json')
+        self.assertEqual(update_response_2.status_code, 200)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, True)
         self.assertEqual(update_response_2.data['message'], "You've been Fixed Up!")
@@ -213,16 +219,22 @@ class SwipeUpdateContractorChoiceTest(BaseTest):
 
         #### MARIO
         #### Tests updating contractor_project_1.contractor_choice to 1 (LEFT swipe)
-        update_response_1 = self.client.patch(f'/api/v1/contractors/{contractor_1.id}/projects/{Project.objects.all()[0].id}?contractor_choice=1', format='json')
+        swipe_left = {
+            "contractor_choice": 1
+        }
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{contractor_1.id}/projects/{Project.objects.all()[0].id}', swipe_left, format='json')
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].contractor_choice, 1)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].contractor_choice, 0)
         self.assertEqual(update_response_1.data['message'], 'contractor_project contractor_choice updated to 1')
-        self.assertEqual(update_response_1.status_code, 204)
+        self.assertEqual(update_response_1.status_code, 200)
 
         #### WARIO
         #### Tests updating contractor_project_2.contractor_choice to 2 (RIGHT swipe)
-        update_response_2 = self.client.patch(f'/api/v1/contractors/{contractor_2.id}/projects/{Project.objects.all()[0].id}?contractor_choice=2', format='json')
+        swipe_right = {
+        "contractor_choice": 2
+        }
+        update_response_2 = self.client.patch(f'/api/v1/contractors/{contractor_2.id}/projects/{Project.objects.all()[0].id}', swipe_right, format='json')
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].contractor_choice, 1)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].contractor_choice, 2)
         self.assertEqual(update_response_2.data['message'], 'contractor_project contractor_choice updated to 2')
-        self.assertEqual(update_response_2.status_code, 204)
+        self.assertEqual(update_response_2.status_code, 200)

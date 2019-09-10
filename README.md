@@ -482,22 +482,36 @@ Status: 200 OK
 
 # <a name="swiping_updates_contractor_choice"></a>Swiping Updates Contractor Choice
 Left Swipe:
-`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1`
-Right Swipe
-`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2`
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
+```
+{
+	"contractor_choice": 1
+}
+```
 
-Left swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id?contractor_choice=1` which takes no body.
+Right Swipe:
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
+```
+{
+	"contractor_choice": 2
+}
+```
 
-Right swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id?contractor_choice=2` which takes no body.
+Left swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes no body.
+
+Right swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes no body.
 
 Example Swipe LEFT Request:
 ```
-PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1
+Body:
+{
+	"contractor_choice": 1
+}
 ```
 
 Example Swipe LEFT Response:
 ```
-Status: 204 Updated
 {
   "message": "contractor_project contractor_choice updated to 1"
 }
@@ -505,12 +519,15 @@ Status: 204 Updated
 
 Example Swipe RIGHT Request:
 ```
-PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1
+Body:
+{
+	"contractor_choice": 2
+}
 ```
 
 Example Swipe RIGHT Response:
 ```
-Status: 204 Updated
 {
   "message": "contractor_project contractor_choice updated to 2"
 }
@@ -524,34 +541,37 @@ A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_c
 
 Example Request:
 ```
-PATCH https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True
+PATCH https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1
+Body:
+{
+	"user_choice": "True"
+}
 ```
 
 Example Response:
 ```
-Status: 204 Updated
 {
-	'message': 'You've been Fixed Up!',
-	'contractor': {
-		"name": contractor.name,
-		"email": contractor.email,
-		"phone_number": contractor.phone_number,
-		"zip": contractor.zip,
-		"category": contractor.category,
-		"logo": contractor.logo
-	},
-	"project": {
-		"title": project.title,
-		"description": project.description,
-		"category": project.category,
-		"user_before_picture": project.user_before_picture,
-		"user_after_picture": project.user_after_picture
-	},
-	"user": {
-		"full_name": user.full_name,
-		"email": user.email,
-		"phone_number": user.phone_number,
-		"zip": user.zip
-	}
+  "message": "You've been Fixed Up!",
+  "contractor": {
+    "name": "Plumbing Person",
+    "email": "plumbing@gmail.com",
+    "phone_number": "7205555555",
+    "zip": "80555",
+    "category": "plumbing",
+    "logo": "plumbinglogo.png"
+  },
+  "project": {
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  "user": {
+    "full_name": "Mario Mario",
+    "email": "jumpman@gmail.com",
+    "phone_number": "3035555555",
+    "zip": "80555"
+  }
 }
 ```
