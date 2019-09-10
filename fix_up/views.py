@@ -61,6 +61,7 @@ class ListProjectsByUser(APIView):
         return Response({
             'user_id': user.id,
             'project': {
+                'id': project.id,
                 'title': project.title,
                 'description': project.description,
                 'picture': project.user_before_picture
@@ -109,3 +110,18 @@ class ListProjectBatchView(generics.ListAPIView):
         ContractorProject.objects.create(contractor=contractor, project=projects[9])
 
         return projects
+
+class ListSingleProjectByUser(APIView):
+    def get(self, request, **kwargs):
+        project = Project.objects.filter(id=kwargs['project_id'])[0]
+        user_id = kwargs['user_id']
+
+        return Response({
+            'user_id': user_id,
+            'project': {
+                'id': project.id,
+                'title': project.title,
+                'description': project.description,
+                'picture': project.user_before_picture
+            }
+        }, status=200)

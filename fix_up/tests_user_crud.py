@@ -57,18 +57,18 @@ class GetUserTest(BaseTest):
         )
         project_2.save()
 
-        response = self.client.get('/api/v1/users/1/projects/1/')
+        response = self.client.get('/api/v1/users/1/projects/1')
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response['user_id'], 1)
-        self.assertEqual(response['project']['id'], 1)
-        self.assertEqual(response['project']['title'], 'project_numero_uno')
-        self.assertEqual(response['project']['description'], 'this is the first project')
+        self.assertEqual(response.data['user_id'], 1)
+        self.assertEqual(response.data['project']['id'], 1)
+        self.assertEqual(response.data['project']['title'], 'project_numero_uno')
+        self.assertEqual(response.data['project']['description'], 'this is the first project')
 
-        response_2 = self.client.get('/api/v1/users/1/projects/2/')
+        response_2 = self.client.get('/api/v1/users/1/projects/2')
 
         self.assertEqual(response_2.status_code, 200)
-        self.assertEqual(response_2['user_id'], 1)
-        self.assertEqual(response_2['project']['id'], 2)
-        self.assertEqual(response_2['project']['title'], 'project_numero_dos')
-        self.assertEqual(response_2['project']['description'], 'this is the second project')
+        self.assertEqual(response_2.data['user_id'], 1)
+        self.assertEqual(response_2.data['project']['id'], 2)
+        self.assertEqual(response_2.data['project']['title'], 'project_numero_dos')
+        self.assertEqual(response_2.data['project']['description'], 'this is the second project')
