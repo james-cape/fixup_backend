@@ -497,9 +497,9 @@ Right Swipe:
 }
 ```
 
-Left swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes no body.
+Left swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes a body.
 
-Right swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes no body.
+Right swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id` which takes a body.
 
 Example Swipe LEFT Request:
 ```
@@ -537,7 +537,7 @@ Example Swipe RIGHT Response:
 # <a name="update_user_choice"></a>User Selects Contractor
 `https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True`
 
-A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_choice=True` which takes no body.
+A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_choice=True` which takes a body.
 
 Example Request:
 ```
