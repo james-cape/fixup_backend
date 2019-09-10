@@ -31,15 +31,27 @@ class SingleProjectView(generics.RetrieveAPIView):
     serializer_class = ProjectSerializer
 
 # Ideally we would access query_params for user_choice, but I hard-coded it for now
-class ListProjectsByContractor(generics.ListAPIView):
-    serializer_class = ProjectSerializer
-    def get_queryset(self):
+class ListProjectsByContractor(APIView):
+    renderer_classes = [JSONRenderer]
+    def get(self, request, **kwargs):
         contractor_filtered = ContractorProject.objects.filter(contractor=self.kwargs["contractor_id"])
         user_choice_filtered = contractor_filtered.filter(user_choice=True)
         accumulator = []
         for element in user_choice_filtered:
-            accumulator.append(element.project)
-        return accumulator
+            accumulator.append(
+                {
+                    "project": {
+                        "id": element.project.id,
+                        "title": element.project.title,
+                        "description": element.project.description,
+                        "category": element.project.category,
+                        "user_before_picture": element.project.user_before_picture,
+                        "user_after_picture": element.project.user_after_picture
+                    },
+                    "seen": element.seen
+                }
+            )
+        return Response(accumulator)
 
 #### Users
 class CreateUserView(generics.CreateAPIView):
