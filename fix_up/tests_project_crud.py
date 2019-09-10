@@ -189,6 +189,7 @@ class ProjectCrudTest(BaseTest):
         self.assertEqual(response.data[0]['project']['user_after_picture'], project_2.user_after_picture)
         self.assertEqual(response.data[0]['seen'], contractor_project_3.seen)
 
+
 class CreateProjectTest(BaseTest):
 
     def test_it_can_create_a_project(self):
