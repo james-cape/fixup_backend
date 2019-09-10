@@ -297,13 +297,28 @@ Example Response:
 ```
 Status: 200 OK
 [
-  {
-    "title": "Broken Pipe",
-    "description": "A pipe in my bathroom is leaky",
-    "category": "plumbing",
-    "user_before_picture": "brokenpipe.png",
-    "user_after_picture": null
-  }
+	{
+		"project": {
+			"id": 1,
+			"title": "Broken Pipe",
+			"description": "A pipe in my bathroom is leaky",
+			"category": "plumbing",
+			"user_before_picture": "brokenpipe.png",
+			"user_after_picture": null
+		},
+		"seen": false
+	},
+	{
+		"project": {
+			"id": 1,
+			"title": "Broken Pipe",
+			"description": "A pipe in my bathroom is leaky",
+			"category": "plumbing",
+			"user_before_picture": "brokenpipe.png",
+			"user_after_picture": null
+		},
+		"seen": false
+	},
 ]
 ```
 

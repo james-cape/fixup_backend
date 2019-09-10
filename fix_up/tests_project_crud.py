@@ -127,7 +127,7 @@ class ProjectCrudTest(BaseTest):
             contractor_choice=0,
             user_choice=True,
             completed=False,
-            seen=False,
+            seen=True,
             contractor_before_picture='picture.png',
             contractor_after_picture='picture.png',
             user_rating=5,
@@ -141,7 +141,7 @@ class ProjectCrudTest(BaseTest):
             contractor_choice=0,
             user_choice=False,
             completed=False,
-            seen=False,
+            seen=True,
             contractor_before_picture='picture.png',
             contractor_after_picture='picture.png',
             user_rating=5,
@@ -181,8 +181,13 @@ class ProjectCrudTest(BaseTest):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[1]['title'], project_1.title)
-        self.assertEqual(response.data[0]['title'], project_2.title)
+        self.assertEqual(response.data[0]['project']['id'], project_2.id)
+        self.assertEqual(response.data[1]['project']['title'], project_1.title)
+        self.assertEqual(response.data[0]['project']['description'], project_2.description)
+        self.assertEqual(response.data[0]['project']['category'], project_2.category)
+        self.assertEqual(response.data[0]['project']['user_before_picture'], project_2.user_before_picture)
+        self.assertEqual(response.data[0]['project']['user_after_picture'], project_2.user_after_picture)
+        self.assertEqual(response.data[0]['seen'], contractor_project_3.seen)
 
 class CreateProjectTest(BaseTest):
 
