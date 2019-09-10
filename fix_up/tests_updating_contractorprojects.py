@@ -84,18 +84,60 @@ class UserSelectsContractorTest(BaseTest):
         #### MARIO
         #### Tests updating contractor_project_1.user_choice to TRUE
         update_response_1 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_1.id}?user_choice=True', format='json')
+        self.assertEqual(update_response_1.status_code, 204)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, False)
         self.assertEqual(update_response_1.data['message'], 'contractor_project user_choice updated to True')
-        self.assertEqual(update_response_1.status_code, 204)
+        self.assertEqual(update_response_1.data['contractor'], {
+            "name": contractor_1.name,
+            "email": contractor_1.email,
+            "phone_number": contractor_1.phone_number,
+            "zip": contractor_1.zip,
+            "category": contractor_1.category,
+            "logo": contractor_1.logo
+        })
+        self.assertEqual(update_response_1.data['project'], {
+            "title": project_1.title,
+            "description": project_1.description,
+            "category": project_1.category,
+            "user_before_picture": project_1.user_before_picture,
+            "user_after_picture": project_1.user_after_picture
+        })
+        self.assertEqual(update_response_1.data['user'], {
+            "full_name": user.full_name,
+            "email": user.email,
+            "phone_number": user.phone_number,
+            "zip": user.zip
+        })
 
         #### WARIO
         #### Tests updating contractor_project_2.user_choice to TRUE
         update_response_2 = self.client.patch(f'/api/v1/projects/{Project.objects.all()[0].id}/contractors/{contractor_2.id}?user_choice=True', format='json')
+        self.assertEqual(update_response_2.status_code, 204)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, True)
         self.assertEqual(update_response_2.data['message'], 'contractor_project user_choice updated to True')
-        self.assertEqual(update_response_2.status_code, 204)
+        self.assertEqual(update_response_2.data['contractor'], {
+            "name": contractor_2.name,
+            "email": contractor_2.email,
+            "phone_number": contractor_2.phone_number,
+            "zip": contractor_2.zip,
+            "category": contractor_2.category,
+            "logo": contractor_2.logo
+        })
+        self.assertEqual(update_response_2.data['project'], {
+            "title": project_1.title,
+            "description": project_1.description,
+            "category": project_1.category,
+            "user_before_picture": project_1.user_before_picture,
+            "user_after_picture": project_1.user_after_picture
+        })
+        self.assertEqual(update_response_2.data['user'], {
+            "full_name": user.full_name,
+            "email": user.email,
+            "phone_number": user.phone_number,
+            "zip": user.zip
+        })
 
 class SwipeUpdateContractorChoiceTest(BaseTest):
     def test_it_updates_contractor_choice_on_swipe(self):

@@ -531,6 +531,26 @@ Example Response:
 ```
 Status: 204 Updated
 {
-  "message": "contractor_project user_choice updated to True"
-}
+	'message': 'contractor_project user_choice updated to True',
+	'contractor': {
+		"name": contractor.name,
+		"email": contractor.email,
+		"phone_number": contractor.phone_number,
+		"zip": contractor.zip,
+		"category": contractor.category,
+		"logo": contractor.logo
+	},
+	"project": {
+		"title": project.title,
+		"description": project.description,
+		"category": project.category,
+		"user_before_picture": project.user_before_picture,
+		"user_after_picture": project.user_after_picture
+	},
+	"user": {
+		"full_name": user.full_name,
+		"email": user.email,
+		"phone_number": user.phone_number,
+		"zip": user.zip
+	}
 ```
