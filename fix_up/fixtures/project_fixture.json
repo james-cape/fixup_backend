@@ -80,7 +80,7 @@
     "model": "fix_up.project",
     "pk": 8,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -91,7 +91,7 @@
     "model": "fix_up.project",
     "pk": 9,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -102,7 +102,7 @@
     "model": "fix_up.project",
     "pk": 10,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -113,7 +113,7 @@
     "model": "fix_up.project",
     "pk": 11,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -124,7 +124,7 @@
     "model": "fix_up.project",
     "pk": 12,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -135,7 +135,7 @@
     "model": "fix_up.project",
     "pk": 13,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -146,7 +146,7 @@
     "model": "fix_up.project",
     "pk": 14,
     "fields": {
-      "user_id": 2,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -157,7 +157,7 @@
     "model": "fix_up.project",
     "pk": 15,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -168,7 +168,7 @@
     "model": "fix_up.project",
     "pk": 16,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -179,7 +179,7 @@
     "model": "fix_up.project",
     "pk": 17,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -190,7 +190,7 @@
     "model": "fix_up.project",
     "pk": 18,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -201,7 +201,7 @@
     "model": "fix_up.project",
     "pk": 19,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -212,7 +212,7 @@
     "model": "fix_up.project",
     "pk": 20,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -223,7 +223,7 @@
     "model": "fix_up.project",
     "pk": 21,
     "fields": {
-      "user_id": 3,
+      "user_id": 1,
       "title": "Broken Pipe",
       "description": "A pipe in my bathroom is leaky",
       "category": "plumbing",
@@ -234,7 +234,7 @@
     "model": "fix_up.project",
     "pk": 22,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Hole in wall",
       "description": "My stupid kid put a hole in their wall",
       "category": "drywall",
@@ -245,7 +245,7 @@
     "model": "fix_up.project",
     "pk": 23,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Hole in wall",
       "description": "My stupid kid put a hole in their wall",
       "category": "drywall",
@@ -256,7 +256,7 @@
     "model": "fix_up.project",
     "pk": 24,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Hole in wall",
       "description": "My stupid kid put a hole in their wall",
       "category": "drywall",
@@ -267,7 +267,7 @@
     "model": "fix_up.project",
     "pk": 25,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Front Door",
       "description": "My front door is very old and needs to be repaired",
       "category": "carpentry",
@@ -278,7 +278,7 @@
     "model": "fix_up.project",
     "pk": 26,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Front Door",
       "description": "My front door is very old and needs to be repaired",
       "category": "carpentry",
@@ -289,7 +289,7 @@
     "model": "fix_up.project",
     "pk": 27,
     "fields": {
-      "user_id": 4,
+      "user_id": 1,
       "title": "Front Door",
       "description": "My front door is very old and needs to be repaired",
       "category": "carpentry",
@@ -300,7 +300,7 @@
     "model": "fix_up.project",
     "pk": 28,
     "fields": {
-      "user_id": 4,
+      "user_id": 2,
       "title": "Front Door",
       "description": "My front door is very old and needs to be repaired",
       "category": "carpentry",
@@ -311,7 +311,7 @@
     "model": "fix_up.project",
     "pk": 29,
     "fields": {
-      "user_id": 5,
+      "user_id": 3,
       "title": "Yard is Destroyed",
       "description": "Rabbits tore apart my whole front yard",
       "category": "landscaping",
@@ -322,7 +322,7 @@
     "model": "fix_up.project",
     "pk": 30,
     "fields": {
-      "user_id": 5,
+      "user_id": 4,
       "title": "Yard is Destroyed",
       "description": "Rabbits tore apart my whole front yard",
       "category": "landscaping",

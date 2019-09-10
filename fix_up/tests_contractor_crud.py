@@ -1,10 +1,36 @@
 from rest_framework.test import APITestCase, APIClient, APIRequestFactory
 from rest_framework.views import status
+from .models import User
+from .models import Project
 from .models import Contractor
+from .models import ContractorProject
 from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()
+
+class RetrieveContractorTest(BaseTest):
+
+    def test_it_can_retrieve_a_contractor(self):
+        contractor_1 = Contractor(
+            name='Mario',
+            email='test@mail.com',
+            phone_number='111111111',
+            zip='80124',
+            category='plumbing',
+            logo='logo.jpg'
+        )
+        contractor_1.save()
+
+        response = self.client.get(f'/api/v1/contractors/{contractor_1.id}', format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['name'], contractor_1.name)
+        self.assertEqual(response.data['email'], contractor_1.email)
+        self.assertEqual(response.data['phone_number'], contractor_1.phone_number)
+        self.assertEqual(response.data['zip'], contractor_1.zip)
+        self.assertEqual(response.data['category'], contractor_1.category)
+        self.assertEqual(response.data['logo'], contractor_1.logo)
 
 class CreateContractorTest(BaseTest):
 

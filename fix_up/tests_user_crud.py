@@ -24,6 +24,7 @@ class CreateUserTest(BaseTest):
         self.assertEqual(response.data['phone_number'], '3333333')
         self.assertEqual(response.data['zip'], '98765')
 
+
 class GetUserTest(BaseTest):
 
     def test_it_can_get_a_user_and_their_projects(self):
@@ -72,3 +73,32 @@ class GetUserTest(BaseTest):
         self.assertEqual(response_2.data['project']['id'], 2)
         self.assertEqual(response_2.data['project']['title'], 'project_numero_dos')
         self.assertEqual(response_2.data['project']['description'], 'this is the second project')
+
+class ShowUserTest(BaseTest):
+
+    def test_it_can_return_user_data(self):
+
+        user_1 = User(
+            full_name='Princess',
+            email='this_castle@mail.com',
+            phone_number='44336',
+            zip='13335'
+        )
+        user_1.save()
+
+        user_2 = User(
+            full_name='other_Princess',
+            email='another_castle@mail.com',
+            phone_number='1234566',
+            zip='12345'
+        )
+        user_2.save()
+
+        response = self.client.get(f'/api/v1/users/{user_1.id}', format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['full_name'], user_1.full_name)
+        self.assertEqual(response.data['full_name'], user_1.full_name)
+        self.assertEqual(response.data['email'], user_1.email)
+        self.assertEqual(response.data['phone_number'], user_1.phone_number)
+        self.assertEqual(response.data['zip'], user_1.zip)

@@ -21,7 +21,7 @@ class CreateContractorView(generics.CreateAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
 
-class SingleContractorView(generics.UpdateAPIView):
+class SingleContractorView(generics.RetrieveAPIView, generics.UpdateAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
 
@@ -40,6 +40,10 @@ class ListProjectsByContractor(generics.ListAPIView):
 
 #### Users
 class CreateUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class SingleUserView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -111,6 +115,7 @@ class ListProjectBatchView(generics.ListAPIView):
 
         return projects
 
+
 class ListSingleProjectByUser(APIView):
     def get(self, request, **kwargs):
         project = Project.objects.filter(id=kwargs['project_id'])[0]
@@ -125,3 +130,46 @@ class ListSingleProjectByUser(APIView):
                 'picture': project.user_before_picture
             }
         }, status=200)
+
+class SwipeUpdateContractorChoiceView(APIView):
+    renderer_classes = [JSONRenderer]
+    def patch(self, request, **kwargs):
+        target = ContractorProject.objects.filter(contractor_id=self.kwargs['contractor_id'], project_id=self.kwargs['project_id'])
+        target.update(contractor_choice=int(request.data["contractor_choice"]))
+
+        return Response({
+            'message': f'contractor_project contractor_choice updated to {int(request.data["contractor_choice"])}'
+        })
+
+class UpdateUserChoiceView(APIView):
+    renderer_classes = [JSONRenderer]
+    def patch(self, request, **kwargs):
+        contractor = Contractor.objects.filter(id=self.kwargs['contractor_id'])[0]
+        project = Project.objects.filter(id=self.kwargs['project_id'])[0]
+        user = project.user
+        contractorproject = ContractorProject.objects.filter(contractor_id=self.kwargs['contractor_id'], project_id=self.kwargs['project_id'])
+        contractorproject.update(user_choice=request.data["user_choice"])
+        return Response({
+            'message': "You've been Fixed Up!",
+            'contractor': {
+                "name": contractor.name,
+                "email": contractor.email,
+                "phone_number": contractor.phone_number,
+                "zip": contractor.zip,
+                "category": contractor.category,
+                "logo": contractor.logo
+            },
+            "project": {
+                "title": project.title,
+                "description": project.description,
+                "category": project.category,
+                "user_before_picture": project.user_before_picture,
+                "user_after_picture": project.user_after_picture
+            },
+            "user": {
+                "full_name": user.full_name,
+                "email": user.email,
+                "phone_number": user.phone_number,
+                "zip": user.zip
+            }
+        })

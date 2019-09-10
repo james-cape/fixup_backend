@@ -202,10 +202,9 @@ class CreateProjectTest(BaseTest):
             'user_before_picture': 'picture.png'
         }
 
-        response = self.client.post('/api/v1/users/2/projects', data, format='json')
-
+        response = self.client.post(f'/api/v1/users/{user_1.id}/projects', data, format='json')
+#
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['project']['title'], 'project_numero_tres')
         self.assertEqual(response.data['project']['description'], 'this is the third project')
         self.assertEqual(response.data['project']['picture'], 'picture.png')
-
