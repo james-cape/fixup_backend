@@ -156,7 +156,7 @@ class SwipeUpdateContractorChoiceView(APIView):
                 'message': f'contractor_project contractor_choice updated to {int(request.data["contractor_choice"])}'
             })
         elif 'seen' in request.data.keys():
-            target.update(seen=int(request.data["seen"]))
+            target.update(seen=request.data["seen"])
             return Response({
                 'message': "Contractor's project marked as 'seen'"
             })
