@@ -9,6 +9,7 @@
 + [See Projects By Contractor](#see_projects_by_contractor)
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
 + [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
++ [User Selects Contractor](#update_user_choice)
 
 
 
@@ -494,7 +495,7 @@ Example Swipe LEFT Request:
 PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1
 ```
 
-Example Swipe LEFT response:
+Example Swipe LEFT Response:
 ```
 Status: 204 Updated
 {
@@ -507,10 +508,50 @@ Example Swipe RIGHT Request:
 PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2
 ```
 
-Example Swipe RIGHT response:
+Example Swipe RIGHT Response:
 ```
 Status: 204 Updated
 {
   "message": "contractor_project contractor_choice updated to 2"
+}
+```
+
+
+# <a name="update_user_choice"></a>User Selects Contractor
+`https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True`
+
+A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_choice=True` which takes no body.
+
+Example Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True
+```
+
+Example Response:
+```
+Status: 204 Updated
+{
+	'message': 'You've been Fixed Up!',
+	'contractor': {
+		"name": contractor.name,
+		"email": contractor.email,
+		"phone_number": contractor.phone_number,
+		"zip": contractor.zip,
+		"category": contractor.category,
+		"logo": contractor.logo
+	},
+	"project": {
+		"title": project.title,
+		"description": project.description,
+		"category": project.category,
+		"user_before_picture": project.user_before_picture,
+		"user_after_picture": project.user_after_picture
+	},
+	"user": {
+		"full_name": user.full_name,
+		"email": user.email,
+		"phone_number": user.phone_number,
+		"zip": user.zip
+	}
 }
 ```
