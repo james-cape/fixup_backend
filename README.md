@@ -553,4 +553,5 @@ Status: 204 Updated
 		"phone_number": user.phone_number,
 		"zip": user.zip
 	}
+}
 ```
