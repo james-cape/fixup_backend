@@ -132,7 +132,7 @@ class UpdateUserChoiceView(APIView):
         contractorproject = ContractorProject.objects.filter(contractor_id=self.kwargs['contractor_id'], project_id=self.kwargs['project_id'])
         contractorproject.update(user_choice=self.request.query_params["user_choice"])
         return Response({
-            'message': f'contractor_project user_choice updated to {self.request.query_params["user_choice"]}',
+            'message': "You've been Fixed Up!",
             'contractor': {
                 "name": contractor.name,
                 "email": contractor.email,

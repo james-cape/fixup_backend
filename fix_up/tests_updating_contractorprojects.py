@@ -87,7 +87,7 @@ class UserSelectsContractorTest(BaseTest):
         self.assertEqual(update_response_1.status_code, 204)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, False)
-        self.assertEqual(update_response_1.data['message'], 'contractor_project user_choice updated to True')
+        self.assertEqual(update_response_1.data['message'], "You've been Fixed Up!")
         self.assertEqual(update_response_1.data['contractor'], {
             "name": contractor_1.name,
             "email": contractor_1.email,
@@ -116,7 +116,7 @@ class UserSelectsContractorTest(BaseTest):
         self.assertEqual(update_response_2.status_code, 204)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].user_choice, True)
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, True)
-        self.assertEqual(update_response_2.data['message'], 'contractor_project user_choice updated to True')
+        self.assertEqual(update_response_2.data['message'], "You've been Fixed Up!")
         self.assertEqual(update_response_2.data['contractor'], {
             "name": contractor_2.name,
             "email": contractor_2.email,
