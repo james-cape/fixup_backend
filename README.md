@@ -10,7 +10,7 @@
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
 + [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
 + [User Selects Contractor](#update_user_choice)
-+ [User Sees Project For First Time](#update_seen_boolean)
++ [Contractor Sees Project For First Time](#update_seen_boolean)
 
 
 
@@ -592,7 +592,7 @@ Example Response:
 }
 ```
 
-# <a name="update_seen_boolean"></a>User Sees Project For First Time
+# <a name="update_seen_boolean"></a>Contractor Sees Project For First Time
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
 
 A PATCH request to `/api/v1/contractors/:id/projects/:id` which takes a body.
