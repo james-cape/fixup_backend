@@ -19,12 +19,8 @@ urlpatterns = [
     path('projects/<int:pk>', SingleProjectView.as_view()),
     path('contractors/<int:contractor_id>/projects', ListProjectsByContractor.as_view()),
     path('users/<int:user_id>/projects', ListProjectsByUser.as_view()),
-<<<<<<< HEAD
     path('users/<int:user_id>/projects/<int:project_id>', ListSingleProjectByUser.as_view()),
-    path('projects', ListProjectBatchView.as_view())
-=======
     path('projects', ListProjectBatchView.as_view()),
     path('contractors/<int:contractor_id>/projects/<int:project_id>', SwipeUpdateContractorChoiceView.as_view()),
     path('projects/<int:project_id>/contractors/<int:contractor_id>', UpdateUserChoiceView.as_view())
->>>>>>> 201d60642e0081354cb127d6881c62eadb54b81e
 ]
