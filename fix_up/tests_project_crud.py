@@ -181,8 +181,8 @@ class ProjectCrudTest(BaseTest):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[1]['title'], project_1.title)
-        self.assertEqual(response.data[0]['title'], project_2.title)
+        self.assertEqual(response.data[1]['title'], project_2.title)
+        self.assertEqual(response.data[0]['title'], project_1.title)
 
 class CreateProjectTest(BaseTest):
 

@@ -7,9 +7,9 @@ class Contractor(models.Model):
     phone_number = models.CharField(null=False, max_length=255)
     zip = models.CharField(null=False, max_length=255)
     category = models.CharField(null=False, max_length=255)
-    logo = models.CharField(null=False, max_length=255)
-    example_project_1 = models.CharField(max_length=255)
-    example_project_2 = models.CharField(max_length=255)
+    logo = models.TextField(null=False)
+    example_project_1 = models.TextField()
+    example_project_2 = models.TextField()
 
     def __str__(self):
         return "{} - {}".format(self.name, self.projects, self.email, self.phone_number, self.zip, self.category, self.logo)
@@ -29,8 +29,8 @@ class Project(models.Model):
     title = models.CharField(null=False, max_length=255)
     description = models.CharField(null=False, max_length=1000)
     category = models.CharField(null=False, max_length=255)
-    user_before_picture = models.CharField(max_length=255)
-    user_after_picture = models.CharField(null=True, max_length=255)
+    user_before_picture = models.TextField()
+    user_after_picture = models.TextField(null=True)
 
     def __str__(self):
         return "{} - {}".format(self.user, self.contractors, self.title, self.description, self.category, self.user_before_picture, self.user_after_picture)
@@ -42,8 +42,8 @@ class ContractorProject(models.Model):
     user_choice = models.BooleanField(default=False)
     seen = models.BooleanField(default=False)
     completed = models.BooleanField(default=False)
-    contractor_before_picture = models.CharField(default=None, null=True, max_length=1000)
-    contractor_after_picture = models.CharField(default=None, null=True, max_length=1000)
+    contractor_before_picture = models.TextField(default=None, null=True)
+    contractor_after_picture = models.TextField(default=None, null=True)
     user_rating = models.IntegerField(default=None, null=True)
     contractor_rating = models.IntegerField(default=None, null=True)
 

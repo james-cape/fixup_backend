@@ -31,7 +31,7 @@ class CreateContractorProjectTest(BaseTest):
             phone_number='222222222',
             zip='80224',
             category='plumbing',
-            logo='logo.jpg'
+            logo='logo.jpg2'
         )
         contractor_2.save()
 
@@ -122,7 +122,9 @@ class CreateContractorProjectTest(BaseTest):
         )
         contractor_project_4.save()
 
-        self.assertEqual(contractor_1.contractorproject_set.all()[0].project.title, project_2.title)
-        self.assertEqual(contractor_1.contractorproject_set.all()[1].project.title, project_1.title)
-        self.assertEqual(contractor_2.contractorproject_set.all()[0].project.title, project_2.title)
-        self.assertEqual(contractor_2.contractorproject_set.all()[1].project.title, project_1.title)
+        contractor_projects = ContractorProject.objects.all()
+        
+        self.assertEqual(contractor_projects[0].project.title, project_1.title)
+        self.assertEqual(contractor_projects[1].project.title, project_1.title)
+        self.assertEqual(contractor_projects[2].project.title, project_2.title)
+        self.assertEqual(contractor_projects[3].project.title, project_2.title)
