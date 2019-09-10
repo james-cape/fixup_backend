@@ -113,3 +113,12 @@ class ListProjectBatchView(generics.ListAPIView):
         ContractorProject.objects.create(contractor=contractor, project=projects[9])
 
         return projects
+
+class SwipeUpdateContractorChoiceView(APIView):
+    renderer_classes = [JSONRenderer]
+    def patch(self, request, **kwargs):
+        target = ContractorProject.objects.filter(contractor_id=self.kwargs['contractor_id'], project_id=self.kwargs['project_id'])
+        target.update(contractor_choice=int(self.request.query_params["contractor_choice"]))
+        return Response({
+            'message': f'contractor_project contractor_choice updated to {int(self.request.query_params["contractor_choice"])}'
+        }, status=204)
