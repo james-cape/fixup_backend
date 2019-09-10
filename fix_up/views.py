@@ -121,8 +121,11 @@ class SwipeUpdateContractorChoiceView(APIView):
         target.update(contractor_choice=int(request.data["contractor_choice"]))
 
         return Response({
-            'message': f'contractor_project contractor_choice updated to {int(request.data["contractor_choice"])}'
+            "message": "it worked"
         }, status=204)
+        # return Response({
+        #     'message': f'contractor_project contractor_choice updated to {int(request.data["contractor_choice"])}'
+        # }, status=204)
 
 class UpdateUserChoiceView(APIView):
     renderer_classes = [JSONRenderer]
