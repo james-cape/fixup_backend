@@ -531,7 +531,7 @@ Example Response:
 ```
 Status: 204 Updated
 {
-	'message': 'contractor_project user_choice updated to True',
+	'message': 'You've been Fixed Up!',
 	'contractor': {
 		"name": contractor.name,
 		"email": contractor.email,
