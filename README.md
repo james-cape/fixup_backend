@@ -10,6 +10,7 @@
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
 + [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
 + [User Selects Contractor](#update_user_choice)
++ [User Sees Project For First Time](#update_seen_boolean)
 
 
 
@@ -124,7 +125,7 @@ A PATCH request to `/api/v1/contractors/:id` takes a body with an object of any 
 
 Example Request:
 ```
-POST https://fixup-backend.herokuapp.com/api/v1/contractors/1
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1
 
 Body; raw, JSON(application/json):
 {
@@ -588,5 +589,28 @@ Example Response:
     "phone_number": "3035555555",
     "zip": "80555"
   }
+}
+```
+
+# <a name="update_seen_boolean"></a>User Sees Project For First Time
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
+
+A PATCH request to `/api/v1/contractors/:id/projects/:id` which takes a body.
+
+Example Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1
+
+Body; raw, JSON(application/json):
+{
+  "seen": "True"
+}
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+  "message": "Contractor's project marked as 'seen'"
 }
 ```
