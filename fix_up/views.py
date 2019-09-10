@@ -36,7 +36,10 @@ class ListProjectsByContractor(generics.ListAPIView):
     def get_queryset(self):
         contractor_filtered = ContractorProject.objects.filter(contractor=self.kwargs["contractor_id"])
         user_choice_filtered = contractor_filtered.filter(user_choice=True)
-        return [element.project for element in user_choice_filtered]
+        accumulator = []
+        for element in user_choice_filtered:
+            accumulator.append(element.project)
+        return accumulator
 
 #### Users
 class CreateUserView(generics.CreateAPIView):
