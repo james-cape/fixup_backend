@@ -8,7 +8,7 @@
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
-
++ [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
 
 
 
@@ -476,4 +476,41 @@ Status: 200 OK
     "user_after_picture": null
   }
 ]
+```
+
+
+# <a name="swiping_updates_contractor_choice"></a>Swiping Updates Contractor Choice
+Left Swipe:
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1`
+Right Swipe
+`https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2`
+
+Left swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id?contractor_choice=1` which takes no body.
+
+Right swipe: a PATCH request to `/api/v1/contractors/contractor_id/projects/project_id?contractor_choice=2` which takes no body.
+
+Example Swipe LEFT Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=1
+```
+
+Example Swipe LEFT response:
+```
+Status: 204 Updated
+{
+  "message": "contractor_project contractor_choice updated to 1"
+}
+```
+
+Example Swipe RIGHT Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1?contractor_choice=2
+```
+
+Example Swipe RIGHT response:
+```
+Status: 204 Updated
+{
+  "message": "contractor_project contractor_choice updated to 2"
+}
 ```
