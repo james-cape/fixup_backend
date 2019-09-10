@@ -86,8 +86,8 @@ class UpdateContractorTest(BaseTest):
         self.assertEqual(Contractor.objects.all()[0].email, 'new_user_1@mail.com')
         self.assertEqual(update_response_1.status_code, 200)
 
-class SwipeLeftUpdateContractorChoiceTest(BaseTest):
-    def test_it_updates_contractor_choice_from_0_to_1_on_left_swipe(self):
+class SwipeUpdateContractorChoiceTest(BaseTest):
+    def test_it_updates_contractor_choice_on_swipe(self):
 
         user = User(
             full_name='Princess',
@@ -117,6 +117,16 @@ class SwipeLeftUpdateContractorChoiceTest(BaseTest):
         )
         contractor_1.save()
 
+        contractor_2 = Contractor(
+            name='Wario',
+            email='test@mail.com',
+            phone_number='111111111',
+            zip='80124',
+            category='plumbing',
+            logo='logo.jpg'
+        )
+        contractor_2.save()
+
         contractor_project_1 = ContractorProject(
             project=project_1,
             contractor=contractor_1,
@@ -131,12 +141,36 @@ class SwipeLeftUpdateContractorChoiceTest(BaseTest):
         )
         contractor_project_1.save()
 
-        self.assertEqual(ContractorProject.objects.all()[0].contractor_choice, 0)
+        contractor_project_2 = ContractorProject(
+            project=project_1,
+            contractor=contractor_2,
+            contractor_choice=0,
+            user_choice=False,
+            completed=False,
+            seen=False,
+            contractor_before_picture='picture.png',
+            contractor_after_picture='picture.png',
+            user_rating=5,
+            contractor_rating=5
+        )
+        contractor_project_2.save()
 
-        data = {
-            'contractor_choice': 1
-        }
-        update_response = self.client.patch(f'/api/v1/contractors/{Contractor.objects.all()[0].id}/projects/{Project.objects.all()[0].id}', data, format='json')
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].contractor_choice, 0)
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].contractor_choice, 0)
 
-        self.assertEqual(update_response.data['message'], 'contractor_project contractor_choice updated to 1')
-        self.assertEqual(update_response.status_code, 204)
+        #### MARIO
+        #### Tests updating contractor_project_1.contractor_choice to 1 (LEFT swipe)
+        update_response_1 = self.client.patch(f'/api/v1/contractors/{contractor_1.id}/projects/{Project.objects.all()[0].id}?contractor_choice=1', format='json')
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].contractor_choice, 1)
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].contractor_choice, 0)
+        self.assertEqual(update_response_1.data['message'], 'contractor_project contractor_choice updated to 1')
+        self.assertEqual(update_response_1.status_code, 204)
+
+        #### WARIO
+        #### Tests updating contractor_project_2.contractor_choice to 2 (RIGHT swipe)
+        update_response_2 = self.client.patch(f'/api/v1/contractors/{contractor_2.id}/projects/{Project.objects.all()[0].id}?contractor_choice=2', format='json')
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_1.id)[0].contractor_choice, 1)
+        self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].contractor_choice, 2)
+        self.assertEqual(ContractorProject.objects.all()[0].contractor_choice, 1)
+        self.assertEqual(update_response_2.data['message'], 'contractor_project contractor_choice updated to 2')
+        self.assertEqual(update_response_2.status_code, 204)

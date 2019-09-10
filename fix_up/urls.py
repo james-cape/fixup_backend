@@ -7,7 +7,7 @@ from .views import SingleProjectView
 from .views import ListProjectsByContractor
 from .views import ListProjectsByUser
 from .views import ListProjectBatchView
-from .views import SwipeLeftUpdateContractorChoiceView
+from .views import SwipeUpdateContractorChoiceView
 
 urlpatterns = [
     path('contractors/', CreateContractorView.as_view()),
@@ -18,5 +18,5 @@ urlpatterns = [
     path('contractors/<int:contractor_id>/projects', ListProjectsByContractor.as_view()),
     path('users/<int:user_id>/projects', ListProjectsByUser.as_view()),
     path('projects', ListProjectBatchView.as_view()),
-    path('contractors/<int:contractor_id>/projects/<int:project_id>', SwipeLeftUpdateContractorChoiceView.as_view())
+    path('contractors/<int:contractor_id>/projects/<int:project_id>', SwipeUpdateContractorChoiceView.as_view())
 ]
