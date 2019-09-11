@@ -15,6 +15,10 @@ This is a [cross-pollination project](https://backend.turing.io/module4/projects
 [Trevor Nodland](https://github.com/tnodland)
 [Back End Repository](https://github.com/james-cape/fixup_backend)
 
+#### Deployed Links
+Back-End: https://fixup-backend.herokuapp.com/
+Front-End: https://expo.io/@rumizen/FixUp
+
 #### Learning Goals
 * Demonstrate our development at Turing via a final group project before graduation
 * Create an application from a raw idea to an MVP (minimum viable product)
@@ -36,21 +40,47 @@ Future iterations of this project will include:
 
 ## Local Setup
 
-If you'd like to get this app running locally, pull down this repo and run the following commands
+If you'd like to run this app locally, pull down this repo and run the following commands:
 
+#### Dependencies
+[Python 3.7.4](https://www.python.org/downloads/release/python-374/)
+[Django 2.2.5](https://docs.djangoproject.com/en/2.2/releases/2.2.5/)
+[Django Rest Framework](https://www.django-rest-framework.org)
+
+#### Commands
+Set up environment:
 ```
-python3 -m venv env
-source venv/bin/activate
-pip3 install -r requirements.txt
-psql
-CREATE DATABASE fixup_development;
-CREATE USER (any username) WITH PASSWORD (any password);
-GRANT ALL PRIVILEGES ON DATABASE fixup_development TO (the username you chose);
-\q
-export(DB_NAME, fixup_development)
-export(DB_USER, (username you chose))
-export(DB_PASSWORD, (password you chose))
-python3 manage.py migrate
+$ python3 -m venv env
+$ source venv/bin/activate
+```
+
+Install dependencies:
+```
+$ pip3 install django
+$ pip3 install djangorestframework
+```
+
+Lock dependency versions:
+```
+$ pip3 install -r requirements.txt
+```
+
+Set up database:
+```
+$ psql
+$ CREATE DATABASE fixup_development;
+$ CREATE USER (any username) WITH PASSWORD (any password);
+$ GRANT ALL PRIVILEGES ON DATABASE fixup_development TO (the username you chose);
+$ \q
+$ export(DB_NAME, fixup_development)
+$ export(DB_USER, (username you chose))
+$ export(DB_PASSWORD, (password you chose))
+$ python3 manage.py migrate
+```
+
+Testing:
+```
+python3 manage.py test
 ```
 
 ## Endpoints Available
@@ -74,7 +104,7 @@ python3 manage.py migrate
 + [User Sees One of Their Projects](#single_user_project)
 
 
-# <a name="create_user"></a>Create a User
+## <a name="create_user"></a>Create a User
 `https://fixup-backend.herokuapp.com/api/v1/users/`
 
 A POST request to `/api/v1/users/` takes a body with an object of keys:
@@ -107,7 +137,7 @@ Status: 201 Created
 }
 ```
 
-# <a name="update_user"></a>Update a User
+## <a name="update_user"></a>Update a User
 `https://fixup-backend.herokuapp.com/api/v1/users/1`
 
 A PATCH request to `/api/v1/users/:id` which takes a body.
@@ -136,7 +166,7 @@ Status: 200 OK
 ```
 
 
-# <a name="create_contractor"></a>Create a Contractor
+## <a name="create_contractor"></a>Create a Contractor
 `https://fixup-backend.herokuapp.com/api/v1/contractors/`
 
 A POST request to `/api/v1/contractors/` takes a body with an object of keys:
@@ -176,7 +206,7 @@ Status: 201 Created
 ```
 
 
-# <a name="see_a_single_contractor"></a>See a Single Contractor
+## <a name="see_a_single_contractor"></a>See a Single Contractor
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1`
 
 A GET request to `/api/v1/contractors/:id` which takes no body.
@@ -200,7 +230,7 @@ Status: 200 OK
 ```
 
 
-# <a name="update_contractor"></a>Update a Contractor
+## <a name="update_contractor"></a>Update a Contractor
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1`
 
 A PATCH request to `/api/v1/contractors/:id` takes a body with an object of any combination or number of the following keys:
@@ -236,7 +266,7 @@ Status: 200 OK
 ```
 
 
-# <a name="create_project"></a>Create a Project
+## <a name="create_project"></a>Create a Project
 `https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
 
 A POST request to `/api/v1/users/1/projects` takes a body with an object of keys:
@@ -272,7 +302,7 @@ Status: 201 Created
 ```
 
 
-# <a name="see_user_show"></a>See User Show
+## <a name="see_user_show"></a>See User Show
 `https://fixup-backend.herokuapp.com/api/v1/users/1`
 
 A GET request to `/api/v1/users/:id` which takes no body.
@@ -294,7 +324,7 @@ Status: 200 OK
 ```
 
 
-# <a name="see_project_show"></a>See Project Show
+## <a name="see_project_show"></a>See Project Show
 `https://fixup-backend.herokuapp.com/api/v1/projects/1`
 
 A GET request to `/api/v1/projects/:id` which takes no body.
@@ -318,7 +348,7 @@ Status: 200 OK
 ```
 
 
-# <a name="update_a_project"></a>Update a Project
+## <a name="update_a_project"></a>Update a Project
 `https://fixup-backend.herokuapp.com/api/v1/projects/1`
 
 A PATCH request to `/api/v1/projects/:id` which takes a body.
@@ -349,7 +379,7 @@ Status: 200 OK
 ```
 
 
-# <a name="see_projects_by_user"></a>See Projects By User
+## <a name="see_projects_by_user"></a>See Projects By User
 `https://fixup-backend.herokuapp.com/api/v1/users/1/projects`
 
 A GET request to `/api/v1/users/:id/projects` which takes no body.
@@ -401,7 +431,7 @@ Status: 200 OK
 ```
 
 
-# <a name="see_projects_by_contractor"></a>See Projects By Contractor
+## <a name="see_projects_by_contractor"></a>See Projects By Contractor
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects`
 
 A GET request to `/api/v1/contractors/:id/projects` which takes no body.
@@ -443,7 +473,7 @@ Status: 200 OK
 ```
 
 
-# <a name="get_batch_of_projects_via_contractor_id"></a>Get Batch of Projects via Contractor ID
+## <a name="get_batch_of_projects_via_contractor_id"></a>Get Batch of Projects via Contractor ID
 `https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=6`
 
 A GET request to `/api/v1/contractors/:id/projects?contractor_id=:id` which takes no body.
@@ -614,7 +644,7 @@ Status: 200 OK
 ]
 ```
 
-# <a name="get_project_suggestions_via_contractor_id"></a>Get Project Suggestions via Contractor ID
+## <a name="get_project_suggestions_via_contractor_id"></a>Get Project Suggestions via Contractor ID
 `https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=1&limit=5`
 
 A GET request to `/api/v1/contractors/:id/projects?contractor_id=:id&limit=limit_quantity` which takes no body.
@@ -672,7 +702,7 @@ Status: 200 OK
 ```
 
 
-# <a name="swiping_updates_contractor_choice"></a>Swiping Updates Contractor Choice
+## <a name="swiping_updates_contractor_choice"></a>Swiping Updates Contractor Choice
 Left Swipe:
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
 ```
@@ -726,7 +756,7 @@ Example Swipe RIGHT Response:
 ```
 
 
-# <a name="update_user_choice"></a>User Selects Contractor
+## <a name="update_user_choice"></a>User Selects Contractor
 `https://fixup-backend.herokuapp.com/api/v1/projects/1/contractors/1?user_choice=True`
 
 A PATCH request to `/api/v1/projects/project_id/contractors/contractor_id?user_choice=True` which takes a body.
@@ -768,7 +798,7 @@ Example Response:
 }
 ```
 
-# <a name="update_seen_boolean"></a>Contractor Sees Project For First Time
+## <a name="update_seen_boolean"></a>Contractor Sees Project For First Time
 `https://fixup-backend.herokuapp.com/api/v1/contractors/1/projects/1`
 
 A PATCH request to `/api/v1/contractors/:id/projects/:id` which takes a body.
@@ -792,7 +822,7 @@ Status: 200 OK
 ```
 
 
-# <a name="single_user_project"></a>User Sees One of Their Projects
+## <a name="single_user_project"></a>User Sees One of Their Projects
 
 A GET request to
 `/api/v1/users/:user_id/projects/:project_id` which takes no body
