@@ -1,3 +1,41 @@
+
+# Welcome to Fix Up Backend!
+This project makes it easy for property owners to connect with contractors for whatever problems they may have. Property owners just upload a picture, and contractors swipe left or right on those pictures depending on if they are interested in the job. If there's a connection between both parties, they'll get fixed up with each other's information!
+
+## Introduction
+This is a [cross-pollination project](https://backend.turing.io/module4/projects/cross_pollination/cross_pollination_spec) between two back-end and two front-end students at [Turing School of Software and Design](https://turing.io/).
+
+#### Front-End Team
+[Steve Rumizen](https://github.com/rumizen)
+[Antonio Fry](https://github.com/AntonioFry)
+[Front End Repository](https://github.com/rumizen/FixUp-fe)
+
+#### Back-End Team
+[James Cape](https://github.com/james-cape)
+[Trevor Nodland](https://github.com/tnodland)
+[Back End Repository](https://github.com/james-cape/fixup_backend)
+
+#### Learning Goals
+* Demonstrate our development at Turing via a final group project before graduation
+* Create an application from a raw idea to an MVP (minimum viable product)
+* Break problems and responsibilities down into digestible pieces for each front-end/back-end team
+* Implement a new technology (Python/Django for the back-end)
+* Implement a new technology (React Native for the front-end)
+* Focus on back-end/front-end communication and detailed documentation for each endpoint
+* Practice written technical communication with concise, consistent git commits and clear pull requests
+* Clearly document Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List
+
+#### Future Iterations
+Future iterations of this project will include:
+* Fully built-out user login
+* Full sad-path testing and accountability
+* Location-based recommendations
+* More lock-down on contractor contact information to keep anonymity until a match
+* In-app communication in place of contact information
+* Payment gates for contractors, such as to send a message to a match
+
+## Endpoints Available
+
 + [Create a User](#create_user)
 + [Create a Contractor](#create_contractor)
 + [See a single Contractor](#see_a_single_contractor)
