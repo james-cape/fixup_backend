@@ -173,6 +173,7 @@ class UpdateUserChoiceView(APIView):
         return Response({
             'message': "You've been Fixed Up!",
             'contractor': {
+                "id": contractor.id,
                 "name": contractor.name,
                 "email": contractor.email,
                 "phone_number": contractor.phone_number,
@@ -181,6 +182,7 @@ class UpdateUserChoiceView(APIView):
                 "logo": contractor.logo
             },
             "project": {
+                "id": project.id,
                 "title": project.title,
                 "description": project.description,
                 "category": project.category,
@@ -188,6 +190,7 @@ class UpdateUserChoiceView(APIView):
                 "user_after_picture": project.user_after_picture
             },
             "user": {
+                "id": user.id,
                 "full_name": user.full_name,
                 "email": user.email,
                 "phone_number": user.phone_number,

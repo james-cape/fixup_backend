@@ -92,6 +92,7 @@ class UserSelectsContractorTest(BaseTest):
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, False)
         self.assertEqual(update_response_1.data['message'], "You've been Fixed Up!")
         self.assertEqual(update_response_1.data['contractor'], {
+            "id": contractor_1.id,
             "name": contractor_1.name,
             "email": contractor_1.email,
             "phone_number": contractor_1.phone_number,
@@ -100,6 +101,7 @@ class UserSelectsContractorTest(BaseTest):
             "logo": contractor_1.logo
         })
         self.assertEqual(update_response_1.data['project'], {
+            "id": project_1.id,
             "title": project_1.title,
             "description": project_1.description,
             "category": project_1.category,
@@ -107,6 +109,7 @@ class UserSelectsContractorTest(BaseTest):
             "user_after_picture": project_1.user_after_picture
         })
         self.assertEqual(update_response_1.data['user'], {
+            "id": user.id,
             "full_name": user.full_name,
             "email": user.email,
             "phone_number": user.phone_number,
@@ -124,6 +127,7 @@ class UserSelectsContractorTest(BaseTest):
         self.assertEqual(ContractorProject.objects.filter(contractor_id=contractor_2.id)[0].user_choice, True)
         self.assertEqual(update_response_2.data['message'], "You've been Fixed Up!")
         self.assertEqual(update_response_2.data['contractor'], {
+            "id": contractor_2.id,
             "name": contractor_2.name,
             "email": contractor_2.email,
             "phone_number": contractor_2.phone_number,
@@ -132,6 +136,7 @@ class UserSelectsContractorTest(BaseTest):
             "logo": contractor_2.logo
         })
         self.assertEqual(update_response_2.data['project'], {
+            "id": project_1.id,
             "title": project_1.title,
             "description": project_1.description,
             "category": project_1.category,
@@ -139,6 +144,7 @@ class UserSelectsContractorTest(BaseTest):
             "user_after_picture": project_1.user_after_picture
         })
         self.assertEqual(update_response_2.data['user'], {
+            "id": user.id,
             "full_name": user.full_name,
             "email": user.email,
             "phone_number": user.phone_number,
