@@ -6,7 +6,7 @@
       "contractor_id": 1,
       "project_id": 35,
       "contractor_choice": 2,
-      "user_choice": "False",
+      "user_choice": "True",
       "seen": "True",
       "completed": "False"
     }
@@ -18,8 +18,8 @@
       "contractor_id": 1,
       "project_id": 34,
       "contractor_choice": 2,
-      "user_choice": "False",
-      "seen": "True",
+      "user_choice": "True",
+      "seen": "False",
       "completed": "False"
     }
   },
@@ -31,7 +31,7 @@
       "project_id": 33,
       "contractor_choice": 2,
       "user_choice": "False",
-      "seen": "True",
+      "seen": "False",
       "completed": "False"
     }
   },
