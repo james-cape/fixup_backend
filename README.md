@@ -34,25 +34,6 @@ Future iterations of this project will include:
 * In-app communication in place of contact information
 * Payment gates for contractors, such as to send a message to a match
 
-## Endpoints Available
-
-+ [Create a User](#create_user)
-+ [Create a Contractor](#create_contractor)
-+ [See a single Contractor](#see_a_single_contractor)
-+ [Update a Contractor](#update_contractor)
-+ [Create a Project](#create_project)
-+ [See User Show](#see_user_show)
-+ [See Project Show](#see_project_show)
-+ [Update a Project](#update_a_project)
-+ [See Projects By User](#see_projects_by_user)
-+ [See Projects By Contractor](#see_projects_by_contractor)
-+ [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
-+ [Get Project Suggestions via Contractor ID](#get_project_suggestions_via_contractor_id)
-+ [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
-+ [User Selects Contractor](#update_user_choice)
-+ [Contractor Sees Project For First Time](#update_seen_boolean)
-+ [User Sees One of Their Projects](#single_user_project)
-
 ## Local Setup
 
 If you'd like to get this app running locally, pull down this repo and run the following commands
@@ -71,6 +52,27 @@ export(DB_USER, (username you chose))
 export(DB_PASSWORD, (password you chose))
 python3 manage.py migrate
 ```
+
+## Endpoints Available
+
++ [Create a User](#create_user)
++ [Update a User](#update_user)
++ [Create a Contractor](#create_contractor)
++ [See a single Contractor](#see_a_single_contractor)
++ [Update a Contractor](#update_contractor)
++ [Create a Project](#create_project)
++ [See User Show](#see_user_show)
++ [See Project Show](#see_project_show)
++ [Update a Project](#update_a_project)
++ [See Projects By User](#see_projects_by_user)
++ [See Projects By Contractor](#see_projects_by_contractor)
++ [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
++ [Get Project Suggestions via Contractor ID](#get_project_suggestions_via_contractor_id)
++ [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
++ [User Selects Contractor](#update_user_choice)
++ [Contractor Sees Project For First Time](#update_seen_boolean)
++ [User Sees One of Their Projects](#single_user_project)
+
 
 # <a name="create_user"></a>Create a User
 `https://fixup-backend.herokuapp.com/api/v1/users/`
@@ -102,6 +104,34 @@ Status: 201 Created
   "email": "user_1_email@email.com",
   "phone_number": "3333333",
   "zip": "98765"
+}
+```
+
+# <a name="update_user"></a>Update a User
+`https://fixup-backend.herokuapp.com/api/v1/users/1`
+
+A PATCH request to `/api/v1/users/:id` which takes a body.
+
+Example Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/users/1
+
+Body; raw, JSON(application/json):
+{
+    "full_name": "other_Princess",
+    "email": "another_castle@mail.com"
+}
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+    "id": 1,
+    "full_name": "other_Princess",
+    "email": "another_castle@mail.com",
+    "phone_number": "3035555555",
+    "zip": "80555"
 }
 ```
 
