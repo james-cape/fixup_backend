@@ -92,7 +92,7 @@ python3 manage.py test
 
 #### Schema
 ![](https://ibb.co/zJQ3L9T)
-
+![Schema](https://i.ibb.co/L5YTqjX/fixupschema.png "Fix Up Schema")
 
 ## Endpoints Available
 
