@@ -90,6 +90,10 @@ Testing:
 python3 manage.py test
 ```
 
+#### Schema
+![](https://ibb.co/zJQ3L9T)
+
+
 ## Endpoints Available
 
 + [Create a User](#create_user)
