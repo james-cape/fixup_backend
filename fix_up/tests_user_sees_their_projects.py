@@ -120,5 +120,6 @@ class UserSeesTheirProjectsTest(BaseTest):
         self.assertEqual(response.data[0]['contractors'][0], {
             'contractor_id': contractor_2.id,
             'picture_1': contractor_2.example_project_1,
-            'picture_2': contractor_2.example_project_2
+            'picture_2': contractor_2.example_project_2,
+            'user_choice': True
         })
