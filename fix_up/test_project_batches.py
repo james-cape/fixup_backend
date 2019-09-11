@@ -9,6 +9,12 @@ from .serializers import ContractorSerializer
 class BaseTest(APITestCase):
     client = APIClient()
 
+    def tear_down():
+        ContractorProject.objects.all().delete()
+        Contractor.objects.all().delete()
+        Project.objects.all().delete()
+        User.objects.all().delete()
+
     def set_up():
         contractor = Contractor(
             name='Mario',
@@ -128,13 +134,30 @@ class BaseTest(APITestCase):
         )
         project_10.save()
 
-class ProjectBatchTest(BaseTest):
     def test_it_sends_ten_projects(self):
         BaseTest.set_up()
 
-        response = self.client.get('/api/v1/projects?contractor_id=1')
+        data = {
+            "contractor_id": "1"
+        }
+        response = self.client.get('/api/v1/projects', data, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]['id'], 1)
         self.assertEqual(response.data[0]['title'], 'project_1')
         self.assertEqual(response.data[0]['description'], 'this is the first project')
         self.assertEqual(ContractorProject.objects.count(), 10)
+        BaseTest.tear_down()
+
+    def test_it_sends_ten_projects(self):
+        BaseTest.set_up()
+
+        data = {
+            "limit": "10",
+            "contractor_id": "1"
+        }
+        response = self.client.get('/api/v1/projects', data, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 5)
+        self.assertEqual(response.data[0]['title'], 'project_1')
+        self.assertEqual(response.data[0]['description'], 'this is the first project')
+        BaseTest.tear_down()
