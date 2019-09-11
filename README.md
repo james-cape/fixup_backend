@@ -5,6 +5,7 @@
 + [Create a Project](#create_project)
 + [See User Show](#see_user_show)
 + [See Project Show](#see_project_show)
++ [Update a Project](#update_a_project)
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
@@ -237,6 +238,37 @@ GET https://fixup-backend.herokuapp.com/api/v1/projects/1
 
 Example Response:
 (See last element for an example of a user's project which a contractor has swiped right on)
+```
+Status: 200 OK
+{
+  "title": "Broken Pipe",
+  "description": "A pipe in my bathroom is leaky",
+  "category": "plumbing",
+  "user_before_picture": "brokenpipe.png",
+  "user_after_picture": null
+}
+```
+
+
+# <a name="update_a_project"></a>Update a Project
+`https://fixup-backend.herokuapp.com/api/v1/projects/1`
+
+A PATCH request to `/api/v1/projects/:id` which takes a body.
+
+Example Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/projects/1
+{
+  "id": 1,
+  "title": "I changed the title",
+  "description": "I changed the description",
+  "category": "plumbing",
+  "user_before_picture": "brokenpipe.png",
+  "user_after_picture": null
+}
+```
+
+Example Response:
 ```
 Status: 200 OK
 {

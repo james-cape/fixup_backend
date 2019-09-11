@@ -215,3 +215,34 @@ class CreateProjectTest(BaseTest):
         self.assertEqual(response.data['project']['title'], 'project_numero_tres')
         self.assertEqual(response.data['project']['description'], 'this is the third project')
         self.assertEqual(response.data['project']['picture'], 'picture.png')
+
+class UpdateProjectTest(BaseTest):
+
+    def test_it_can_update_a_project(self):
+        user_1 = User(
+            full_name='Princess',
+            email='another_castle@mail.com',
+            phone_number='1234566',
+            zip='12345'
+        )
+        user_1.save()
+
+        project_1 = Project(
+            user=user_1,
+            title='project_numero_uno',
+            description='this is the first project',
+            category='plumbing',
+            user_before_picture='picture.png'
+        )
+        project_1.save()
+
+        data = {
+            'title': 'I changed the title',
+            'description': 'I changed the description'
+        }
+
+        response = self.client.patch(f'/api/v1/projects/{project_1.id}', data, format='json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data['title'], 'I changed the title')
+        self.assertEqual(response.data['description'], 'I changed the description')
+        self.assertEqual(response.data['category'], 'plumbing')
