@@ -110,26 +110,27 @@ class ListProjectsByUser(APIView):
             })
         return Response(queryset)
 
-
-
 class ListProjectBatchView(generics.ListAPIView):
     serializer_class = ProjectSerializer
     def get_queryset(self):
         contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])[0]
-        projects = Project.objects.filter(category=contractor.category)
-        ContractorProject.objects.create(contractor=contractor, project=projects[0])
-        ContractorProject.objects.create(contractor=contractor, project=projects[1])
-        ContractorProject.objects.create(contractor=contractor, project=projects[2])
-        ContractorProject.objects.create(contractor=contractor, project=projects[3])
-        ContractorProject.objects.create(contractor=contractor, project=projects[4])
-        ContractorProject.objects.create(contractor=contractor, project=projects[5])
-        ContractorProject.objects.create(contractor=contractor, project=projects[6])
-        ContractorProject.objects.create(contractor=contractor, project=projects[7])
-        ContractorProject.objects.create(contractor=contractor, project=projects[8])
-        ContractorProject.objects.create(contractor=contractor, project=projects[9])
-
-        return projects
-
+        if 'limit' in self.request.query_params.keys():
+            filtered_category = Project.objects.filter(category=contractor.category)
+            no_contractors = filtered_category.filter(contractorproject=None)[:5]
+            return no_contractors
+        else:
+            projects = Project.objects.filter(category=contractor.category)
+            ContractorProject.objects.create(contractor=contractor, project=projects[0])
+            ContractorProject.objects.create(contractor=contractor, project=projects[1])
+            ContractorProject.objects.create(contractor=contractor, project=projects[2])
+            ContractorProject.objects.create(contractor=contractor, project=projects[3])
+            ContractorProject.objects.create(contractor=contractor, project=projects[4])
+            ContractorProject.objects.create(contractor=contractor, project=projects[5])
+            ContractorProject.objects.create(contractor=contractor, project=projects[6])
+            ContractorProject.objects.create(contractor=contractor, project=projects[7])
+            ContractorProject.objects.create(contractor=contractor, project=projects[8])
+            ContractorProject.objects.create(contractor=contractor, project=projects[9])
+            return projects
 
 class ListSingleProjectByUser(APIView):
     def get(self, request, **kwargs):
