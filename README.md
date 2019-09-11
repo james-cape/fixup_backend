@@ -1,19 +1,38 @@
-+ [Create a User](#create_user)
-+ [Create a Contractor](#create_contractor)
-+ [See a single Contractor](#see_a_single_contractor)
-+ [Update a Contractor](#update_contractor)
-+ [Create a Project](#create_project)
-+ [See User Show](#see_user_show)
-+ [See Project Show](#see_project_show)
-+ [Update a Project](#update_a_project)
-+ [See Projects By User](#see_projects_by_user)
-+ [See Projects By Contractor](#see_projects_by_contractor)
-+ [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
-+ [Get Project Suggestions via Contractor ID](#get_project_suggestions_via_contractor_id)
-+ [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
-+ [User Selects Contractor](#update_user_choice)
-+ [Contractor Sees Project For First Time](#update_seen_boolean)
-+ [User Sees One of Their Projects](#single_user_project)
+
+# Welcome to Fix Up Backend!
+This project makes it easy for property owners to connect with contractors for whatever problems they may have. Property owners just upload a picture, and contractors swipe left or right on those pictures depending on if they are interested in the job. If there's a connection between both parties, they'll get fixed up with each other's information!
+
+## Introduction
+This is a [cross-pollination project](https://backend.turing.io/module4/projects/cross_pollination/cross_pollination_spec) between two back-end and two front-end students at [Turing School of Software and Design](https://turing.io/).
+
+#### Front-End Team
+[Steve Rumizen](https://github.com/rumizen)
+[Antonio Fry](https://github.com/AntonioFry)
+[Front End Repository](https://github.com/rumizen/FixUp-fe)
+
+#### Back-End Team
+[James Cape](https://github.com/james-cape)
+[Trevor Nodland](https://github.com/tnodland)
+[Back End Repository](https://github.com/james-cape/fixup_backend)
+
+#### Learning Goals
+* Demonstrate our development at Turing via a final group project before graduation
+* Create an application from a raw idea to an MVP (minimum viable product)
+* Break problems and responsibilities down into digestible pieces for each front-end/back-end team
+* Implement a new technology (Python/Django for the back-end)
+* Implement a new technology (React Native for the front-end)
+* Focus on back-end/front-end communication and detailed documentation for each endpoint
+* Practice written technical communication with concise, consistent git commits and clear pull requests
+* Clearly document Introduction, Initial Setup, How to Use, Known Issues, Running Tests, How to Contribute, Core Contributors, Schema Design, and Tech Stack List
+
+#### Future Iterations
+Future iterations of this project will include:
+* Fully built-out user login
+* Full sad-path testing and accountability
+* Location-based recommendations
+* More lock-down on contractor contact information to keep anonymity until a match
+* In-app communication in place of contact information
+* Payment gates for contractors, such as to send a message to a match
 
 ## Local Setup
 
@@ -33,6 +52,27 @@ export(DB_USER, (username you chose))
 export(DB_PASSWORD, (password you chose))
 python3 manage.py migrate
 ```
+
+## Endpoints Available
+
++ [Create a User](#create_user)
++ [Update a User](#update_user)
++ [Create a Contractor](#create_contractor)
++ [See a single Contractor](#see_a_single_contractor)
++ [Update a Contractor](#update_contractor)
++ [Create a Project](#create_project)
++ [See User Show](#see_user_show)
++ [See Project Show](#see_project_show)
++ [Update a Project](#update_a_project)
++ [See Projects By User](#see_projects_by_user)
++ [See Projects By Contractor](#see_projects_by_contractor)
++ [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
++ [Get Project Suggestions via Contractor ID](#get_project_suggestions_via_contractor_id)
++ [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
++ [User Selects Contractor](#update_user_choice)
++ [Contractor Sees Project For First Time](#update_seen_boolean)
++ [User Sees One of Their Projects](#single_user_project)
+
 
 # <a name="create_user"></a>Create a User
 `https://fixup-backend.herokuapp.com/api/v1/users/`
@@ -64,6 +104,34 @@ Status: 201 Created
   "email": "user_1_email@email.com",
   "phone_number": "3333333",
   "zip": "98765"
+}
+```
+
+# <a name="update_user"></a>Update a User
+`https://fixup-backend.herokuapp.com/api/v1/users/1`
+
+A PATCH request to `/api/v1/users/:id` which takes a body.
+
+Example Request:
+```
+PATCH https://fixup-backend.herokuapp.com/api/v1/users/1
+
+Body; raw, JSON(application/json):
+{
+    "full_name": "other_Princess",
+    "email": "another_castle@mail.com"
+}
+```
+
+Example Response:
+```
+Status: 200 OK
+{
+    "id": 1,
+    "full_name": "other_Princess",
+    "email": "another_castle@mail.com",
+    "phone_number": "3035555555",
+    "zip": "80555"
 }
 ```
 

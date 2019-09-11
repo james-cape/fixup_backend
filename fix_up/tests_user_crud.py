@@ -102,3 +102,27 @@ class ShowUserTest(BaseTest):
         self.assertEqual(response.data['email'], user_1.email)
         self.assertEqual(response.data['phone_number'], user_1.phone_number)
         self.assertEqual(response.data['zip'], user_1.zip)
+
+class UpdateUserTest(BaseTest):
+
+    def test_it_can_update_user_data(self):
+
+        user_1 = User(
+            full_name='Princess',
+            email='this_castle@mail.com',
+            phone_number='44336',
+            zip='13335'
+        )
+        user_1.save()
+
+        data = {
+            "full_name": "other_Princess",
+            "email": "another_castle@mail.com"
+        }
+        response = self.client.patch(f'/api/v1/users/{user_1.id}', data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['id'], user_1.id)
+        self.assertEqual(response.data['full_name'], 'other_Princess')
+        self.assertEqual(response.data['email'], "another_castle@mail.com")
+        self.assertEqual(response.data['phone_number'], user_1.phone_number)
+        self.assertEqual(response.data['zip'], user_1.zip)
