@@ -12,6 +12,7 @@
 + [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
 + [User Selects Contractor](#update_user_choice)
 + [Contractor Sees Project For First Time](#update_seen_boolean)
++ [User Sees One of Their Projects](#single_user_project)
 
 
 
@@ -672,3 +673,28 @@ Status: 200 OK
   "message": "Contractor's project marked as 'seen'"
 }
 ```
+
+
+# <a name="single_user_project"></a>User Sees One of Their Projects
+
+A GET request to
+`/api/v1/users/:user_id/projects/:project_id` which takes no body
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/users/1/projects/1
+```
+
+Example Response:
+```
+Status: 200 OK
+
+{
+	"user_id": 1,
+	"project": {
+		"id": 1,
+		"title": "Broken Pipe",
+		"description": "My pipe burst and I have a water leak",
+		"picture": "pipe.png"
+	}
+}
