@@ -97,7 +97,8 @@ class ListProjectsByUser(APIView):
                 contractor_accumulator.append({
                     'contractor_id': contractor_project.contractor.id,
                     'picture_1': contractor_project.contractor.example_project_1,
-                    'picture_2': contractor_project.contractor.example_project_2
+                    'picture_2': contractor_project.contractor.example_project_2,
+                    'user_choice': contractor_project.user_choice
                 })
             queryset.append({
                 'id': user_project.id,

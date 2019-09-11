@@ -6,7 +6,7 @@
       "contractor_id": 1,
       "project_id": 35,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "True",
       "completed": "False"
     }
@@ -18,7 +18,7 @@
       "contractor_id": 1,
       "project_id": 34,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "True",
       "completed": "False"
     }
@@ -30,7 +30,7 @@
       "contractor_id": 1,
       "project_id": 33,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "True",
       "completed": "False"
     }
@@ -42,7 +42,7 @@
       "contractor_id": 1,
       "project_id": 32,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "False",
       "completed": "False"
     }
@@ -54,7 +54,7 @@
       "contractor_id": 1,
       "project_id": 31,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "False",
       "completed": "False"
     }
@@ -66,7 +66,7 @@
       "contractor_id": 1,
       "project_id": 30,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "False",
       "completed": "False"
     }
@@ -111,7 +111,7 @@
       "contractor_id": 3,
       "project_id": 33,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "True",
       "completed": "True",
       "user_rating": 5,
@@ -125,7 +125,7 @@
       "contractor_id": 4,
       "project_id": 24,
       "contractor_choice": 2,
-      "user_choice": "True",
+      "user_choice": "False",
       "seen": "True",
       "completed": "True",
       "user_rating": 1,
