@@ -7,16 +7,21 @@ This is a [cross-pollination project](https://backend.turing.io/module4/projects
 
 #### Front-End Team
 [Steve Rumizen](https://github.com/rumizen)
+
 [Antonio Fry](https://github.com/AntonioFry)
+
 [Front End Repository](https://github.com/rumizen/FixUp-fe)
 
 #### Back-End Team
 [James Cape](https://github.com/james-cape)
+
 [Trevor Nodland](https://github.com/tnodland)
+
 [Back End Repository](https://github.com/james-cape/fixup_backend)
 
 #### Deployed Links
 Back-End: https://fixup-backend.herokuapp.com/
+
 Front-End: https://expo.io/@rumizen/FixUp
 
 #### Learning Goals
@@ -44,7 +49,9 @@ If you'd like to run this app locally, pull down this repo and run the following
 
 #### Dependencies
 [Python 3.7.4](https://www.python.org/downloads/release/python-374/)
+
 [Django 2.2.5](https://docs.djangoproject.com/en/2.2/releases/2.2.5/)
+
 [Django Rest Framework](https://www.django-rest-framework.org)
 
 #### Commands
