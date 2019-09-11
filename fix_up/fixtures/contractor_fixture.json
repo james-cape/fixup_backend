@@ -7,7 +7,7 @@
       "email": "plumbing@gmail.com",
       "phone_number": "7205555555",
       "zip": "80555",
-      "category": "plumbing",
+      "category": "Plumbing",
       "logo": "plumbinglogo.png"
     }
   },
@@ -19,7 +19,7 @@
       "email": "landscaping@gmail.com",
       "phone_number": "7205555556",
       "zip": "80555",
-      "category": "landscaping",
+      "category": "Landscaping",
       "logo": "landscapinglogo.png"
     }
   },
@@ -31,7 +31,7 @@
       "email": "electrician@gmail.com",
       "phone_number": "7205555557",
       "zip": "80555",
-      "category": "electrician",
+      "category": "Electrician",
       "logo": "electricianlogo.png"
     }
   },
@@ -43,7 +43,7 @@
       "email": "drywall@gmail.com",
       "phone_number": "7205555558",
       "zip": "80555",
-      "category": "drywall",
+      "category": "Drywall",
       "logo": "drywalllogo.png"
     }
   },
@@ -55,7 +55,7 @@
       "email": "carpentry@gmail.com",
       "phone_number": "7205555559",
       "zip": "80555",
-      "category": "carpentry",
+      "category": "Carpentry",
       "logo": "carpentrylogo.png"
     }
   }
