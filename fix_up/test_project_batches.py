@@ -137,10 +137,7 @@ class BaseTest(APITestCase):
     def test_it_sends_ten_projects(self):
         BaseTest.set_up()
 
-        data = {
-            "contractor_id": "1"
-        }
-        response = self.client.get('/api/v1/projects', data, format='json')
+        response = self.client.get('/api/v1/projects?contractor_id=1', format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data[0]['id'], 1)
         self.assertEqual(response.data[0]['title'], 'project_1')
@@ -151,11 +148,7 @@ class BaseTest(APITestCase):
     def test_it_sends_ten_projects(self):
         BaseTest.set_up()
 
-        data = {
-            "limit": "10",
-            "contractor_id": "1"
-        }
-        response = self.client.get('/api/v1/projects', data, format='json')
+        response = self.client.get('/api/v1/projects?contractor_id=1&limit=5', format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 5)
         self.assertEqual(response.data[0]['title'], 'project_1')

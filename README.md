@@ -8,6 +8,7 @@
 + [See Projects By User](#see_projects_by_user)
 + [See Projects By Contractor](#see_projects_by_contractor)
 + [Get Batch of Projects via Contractor ID](#get_batch_of_projects_via_contractor_id)
++ [Get Project Suggestions via Contractor ID](#get_project_suggestions_via_contractor_id)
 + [Swiping Updates Contractor Choice](#swiping_updates_contractor_choice)
 + [User Selects Contractor](#update_user_choice)
 + [Contractor Sees Project For First Time](#update_seen_boolean)
@@ -490,6 +491,63 @@ Status: 200 OK
     "description": "this is the third project",
     "category": "plumbing",
     "user_before_picture": "picture.png",
+    "user_after_picture": null
+  }
+]
+```
+
+# <a name="get_project_suggestions_via_contractor_id"></a>Get Project Suggestions via Contractor ID
+`https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=1&limit=5`
+
+A GET request to `/api/v1/contractors/:id/projects?contractor_id=:id&limit=limit_quantity` which takes no body.
+
+Example Request:
+```
+GET https://fixup-backend.herokuapp.com/api/v1/projects?contractor_id=1&limit=5
+```
+
+Example Response:
+```
+Status: 200 OK
+[
+  {
+    "id": 11,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "id": 12,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "id": 13,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "id": 14,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
+    "user_after_picture": null
+  },
+  {
+    "id": 15,
+    "title": "Broken Pipe",
+    "description": "A pipe in my bathroom is leaky",
+    "category": "plumbing",
+    "user_before_picture": "brokenpipe.png",
     "user_after_picture": null
   }
 ]
