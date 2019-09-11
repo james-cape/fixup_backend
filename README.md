@@ -14,7 +14,24 @@
 + [Contractor Sees Project For First Time](#update_seen_boolean)
 + [User Sees One of Their Projects](#single_user_project)
 
+## Local Setup
 
+If you'd like to get this app running locally, pull down this repo and run the following commands
+
+```
+python3 -m venv env
+source venv/bin/activate
+pip3 install -r requirements.txt
+psql
+CREATE DATABASE fixup_development;
+CREATE USER (any username) WITH PASSWORD (any password);
+GRANT ALL PRIVILEGES ON DATABASE fixup_development TO (the username you chose);
+\q
+export(DB_NAME, fixup_development)
+export(DB_USER, (username you chose))
+export(DB_PASSWORD, (password you chose))
+python3 manage.py migrate
+```
 
 # <a name="create_user"></a>Create a User
 `https://fixup-backend.herokuapp.com/api/v1/users/`
