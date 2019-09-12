@@ -8,15 +8,14 @@ from .serializers import ContractorSerializer
 
 class BaseTest(APITestCase):
     client = APIClient()
-    def test_it_sends_ten_projects(self):
 
-    # def tear_down():
-    #     ContractorProject.objects.all().delete()
-    #     Contractor.objects.all().delete()
-    #     Project.objects.all().delete()
-    #     User.objects.all().delete()
-    #
-    # def set_up():
+    def tear_down():
+        ContractorProject.objects.all().delete()
+        Contractor.objects.all().delete()
+        Project.objects.all().delete()
+        User.objects.all().delete()
+
+    def set_up():
         contractor = Contractor(
             name='Mario',
             email='test@mail.com',
@@ -135,8 +134,8 @@ class BaseTest(APITestCase):
         )
         project_10.save()
 
-    # def test_it_sends_ten_projects(self):
-    #     BaseTest.set_up()
+    def test_it_sends_ten_projects(self):
+        BaseTest.set_up()
 
         response = self.client.get('/api/v1/projects?contractor_id=1', format='json')
         self.assertEqual(response.status_code, 200)
@@ -144,14 +143,15 @@ class BaseTest(APITestCase):
         self.assertEqual(response.data[0]['title'], 'project_1')
         self.assertEqual(response.data[0]['description'], 'this is the first project')
         self.assertEqual(ContractorProject.objects.count(), 10)
-        # BaseTest.tear_down()
+        BaseTest.tear_down()
 
-    # def test_it_sends_five_suggested_projects(self):
+
+    # def test_it_sends_suggested_projects(self):
     #     BaseTest.set_up()
     #
-        # response = self.client.get('/api/v1/projects?contractor_id=1&limit=5', format='json')
-        # self.assertEqual(response.status_code, 200)
-        # self.assertEqual(len(response.data), 5)
-        # self.assertEqual(response.data[0]['title'], 'project_1')
-        # self.assertEqual(response.data[0]['description'], 'this is the first project')
+    #     response = self.client.get('/api/v1/projects?contractor_id=1&limit=5', format='json')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(len(response.data), 5)
+    #     self.assertEqual(response.data[0]['title'], 'project_1')
+    #     self.assertEqual(response.data[0]['description'], 'this is the first project')
     #     BaseTest.tear_down()

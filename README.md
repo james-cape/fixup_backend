@@ -79,9 +79,9 @@ $ CREATE DATABASE fixup_development;
 $ CREATE USER (any username) WITH PASSWORD (any password);
 $ GRANT ALL PRIVILEGES ON DATABASE fixup_development TO (the username you chose);
 $ \q
-$ export(DB_NAME, fixup_development)
-$ export(DB_USER, (username you chose))
-$ export(DB_PASSWORD, (password you chose))
+$ export DB_NAME="fixup_development"
+$ export DB_USER="username you chose"
+$ export DB_PASSWORD="password you chose"
 $ python3 manage.py migrate
 ```
 
