@@ -145,12 +145,13 @@ class BaseTest(APITestCase):
         self.assertEqual(ContractorProject.objects.count(), 10)
         BaseTest.tear_down()
 
-    def test_it_sends_ten_projects(self):
-        BaseTest.set_up()
 
-        response = self.client.get('/api/v1/projects?contractor_id=1&limit=5', format='json')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 5)
-        self.assertEqual(response.data[0]['title'], 'project_1')
-        self.assertEqual(response.data[0]['description'], 'this is the first project')
-        BaseTest.tear_down()
+    # def test_it_sends_suggested_projects(self):
+    #     BaseTest.set_up()
+    #
+    #     response = self.client.get('/api/v1/projects?contractor_id=1&limit=5', format='json')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(len(response.data), 5)
+    #     self.assertEqual(response.data[0]['title'], 'project_1')
+    #     self.assertEqual(response.data[0]['description'], 'this is the first project')
+    #     BaseTest.tear_down()

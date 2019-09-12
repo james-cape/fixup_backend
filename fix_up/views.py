@@ -49,8 +49,7 @@ class ListProjectsByContractor(APIView):
                         "user_after_picture": element.project.user_after_picture
                     },
                     "seen": element.seen
-                }
-            )
+                })
         return Response(accumulator)
 
 #### Users
@@ -116,21 +115,12 @@ class ListProjectBatchView(generics.ListAPIView):
     def get_queryset(self):
         contractor = Contractor.objects.filter(id=self.request.query_params['contractor_id'])[0]
         if 'limit' in self.request.query_params.keys():
-            filtered_category = Project.objects.filter(category=contractor.category)
-            no_contractors = filtered_category.filter(contractorproject=None)[:5]
-            return no_contractors
+            filtered_category = Project.objects.filter(category=contractor.category)[:5]
+            return filtered_category
         else:
             projects = Project.objects.filter(category=contractor.category)
-            ContractorProject.objects.create(contractor=contractor, project=projects[0])
-            ContractorProject.objects.create(contractor=contractor, project=projects[1])
-            ContractorProject.objects.create(contractor=contractor, project=projects[2])
-            ContractorProject.objects.create(contractor=contractor, project=projects[3])
-            ContractorProject.objects.create(contractor=contractor, project=projects[4])
-            ContractorProject.objects.create(contractor=contractor, project=projects[5])
-            ContractorProject.objects.create(contractor=contractor, project=projects[6])
-            ContractorProject.objects.create(contractor=contractor, project=projects[7])
-            ContractorProject.objects.create(contractor=contractor, project=projects[8])
-            ContractorProject.objects.create(contractor=contractor, project=projects[9])
+            for project in projects:
+                ContractorProject.objects.create(contractor=contractor, project=project)
             return projects
 
 class ListSingleProjectByUser(APIView):
