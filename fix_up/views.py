@@ -118,7 +118,7 @@ class ListProjectBatchView(generics.ListAPIView):
         if 'limit' in self.request.query_params.keys():
             filtered_category = Project.objects.filter(category=contractor.category)[:5]
             # no_contractors = filtered_category.filter(contractorproject=None)[:5]
-            return no_contractors
+            return filtered_category
         else:
             projects = Project.objects.filter(category=contractor.category)
 
