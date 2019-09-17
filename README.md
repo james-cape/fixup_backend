@@ -58,6 +58,7 @@ If you'd like to run this app locally, pull down this repo and run the following
 Set up environment:
 ```
 $ python3 -m venv env
+$ virtualenv venv
 $ source venv/bin/activate
 ```
 
