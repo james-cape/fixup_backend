@@ -5,6 +5,14 @@ This project makes it easy for property owners to connect with contractors for w
 ## Introduction
 This is a [cross-pollination project](https://backend.turing.io/module4/projects/cross_pollination/cross_pollination_spec) between two back-end and two front-end students at [Turing School of Software and Design](https://turing.io/).
 
+## Contractor User Flow
+https://youtu.be/B5P1E1AnFRs
+[![Watch the contractor video](https://img.youtube.com/vi/B5P1E1AnFRs/maxresdefault.jpg)](https://youtu.be/B5P1E1AnFRs)
+
+## Homeowner User Flow
+https://youtu.be/cHj21CxvID0
+[![Watch the homeowner video](https://img.youtube.com/vi/cHj21CxvID0/maxresdefault.jpg)](https://youtu.be/cHj21CxvID0)
+
 #### Front-End Team
 [Steve Rumizen](https://github.com/rumizen)
 
