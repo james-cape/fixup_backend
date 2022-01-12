@@ -29,7 +29,7 @@ more-itertools==7.1.0
 msgpack==0.6.1
 packaging==19.0
 pastel==0.1.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 pkginfo==1.5.0.1
 pluggy==0.12.0
 poetry==0.12.17
